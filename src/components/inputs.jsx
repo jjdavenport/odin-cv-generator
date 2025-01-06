@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Button from "./button";
 import profileIcon from "../assets/profile-icon.svg";
 import briefcaseIcon from "../assets/briefcase-icon.svg";
@@ -5,22 +6,47 @@ import graduationIcon from "../assets/graduation-icon.svg";
 import lightningIcon from "../assets/lightning-icon.svg";
 import languageIcon from "../assets/language-icon.svg";
 import certificateIcon from "../assets/certificate-icon.svg";
+import Education from "./education";
+import Experience from "./experience";
+import Languages from "./languages";
+import Skills from "./skills";
+import Certificates from "./certificates";
+import Personal from "./personal";
 
 const Inputs = () => {
+  const [active, setActive] = useState(null);
+
+  const buttons = [
+    { img: profileIcon, title: "Personal Details", component: Personal },
+    { img: briefcaseIcon, title: "Experience", component: Experience },
+    { img: graduationIcon, title: "Education", component: Education },
+    { img: lightningIcon, title: "Skills", component: Skills },
+    { img: languageIcon, title: "Languages", component: Languages },
+    { img: certificateIcon, title: "Certificates", component: Certificates },
+  ];
+
+  const ActiveComponent = buttons[active]?.component;
+
   return (
-    <>
-      <main>
-        <h1>CV</h1>
-        <ul>
-          <Button img={profileIcon} title="Personal Details" />
-          <Button img={briefcaseIcon} title="Experience" />
-          <Button img={graduationIcon} title="Education" />
-          <Button img={lightningIcon} title="Skills" />
-          <Button img={languageIcon} title="Languages" />
-          <Button img={certificateIcon} title="Certificates" />
-        </ul>
-      </main>
-    </>
+    <main className="flex w-full flex-col gap-4 p-4 md:h-full md:min-h-screen md:w-1/2">
+      {ActiveComponent ? (
+        <ActiveComponent />
+      ) : (
+        <>
+          <h1 className="text-xl font-medium">CV</h1>
+          <ul className="flex flex-col gap-10 divide-y-2">
+            {buttons.map((button, index) => (
+              <Button
+                key={index}
+                onClick={() => setActive(index)}
+                img={button.img}
+                title={button.title}
+              />
+            ))}
+          </ul>
+        </>
+      )}
+    </main>
   );
 };
 

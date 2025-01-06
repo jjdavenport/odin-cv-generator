@@ -1,12 +1,15 @@
 const Button = ({ img, title, onClick }) => {
   return (
-    <li>
-      <button className="flex" onClick={onClick}>
-        <img className="w-10" src={img} />
+    <li className="pt-10">
+      <button
+        className="flex w-full justify-between items-center"
+        onClick={onClick}
+      >
+        <img className="w-6" src={img} />
         <span>{title}</span>
         <svg
           fill="#000000"
-          className="w-10"
+          className="w-6"
           version="1.1"
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"

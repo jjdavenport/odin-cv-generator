@@ -3,11 +3,22 @@ import Inputs from "./components/inputs";
 import Output from "./components/output";
 
 function App() {
-  const { personal, setPersonal } = useInputs();
+  const {
+    personal,
+    setPersonal,
+    experience,
+    setExperience,
+    education,
+    setEducation,
+  } = useInputs();
   return (
     <>
-      <div>
-        <Output />
+      <div className="flex md:flex-row flex-col">
+        <Output
+          education={education}
+          experience={experience}
+          personal={personal}
+        />
         <Inputs />
       </div>
     </>

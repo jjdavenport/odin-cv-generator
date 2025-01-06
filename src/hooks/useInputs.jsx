@@ -3,34 +3,36 @@ import { useState } from "react";
 const useInputs = () => {
   const [personal, setPersonal] = useState({
     avatar: "",
-    firstName: "",
-    lastName: "",
-    jobTitle: "",
-    phoneNumber: "",
-    emailAddress: "",
-    website: "",
-    city: "",
-    stateCountry: "",
+    firstName: "John",
+    lastName: "Smith",
+    jobTitle: "Programmer",
+    phoneNumber: "000-000-0000",
+    emailAddress: "johnsmith@email.com",
+    website: "www.johnsmith.com",
+    city: "London",
+    stateCountry: "UK",
   });
 
   const [experience, setExperience] = useState({
-    jobTitle: "",
-    company: "",
+    jobTitle: "Programmer",
+    company: "Mega Corp",
     companyWebsite: "",
-    startMonth: "",
-    startYear: "",
+    startMonth: "09",
+    startYear: "2023",
+    endMonth: "09",
+    endYear: "2023",
     toPresent: false,
-    jobDescription: "",
+    jobDescription: "Front end developer for Mega Corp.",
   });
 
   const [education, setEducation] = useState({
-    school: "",
-    degree: "",
-    fieldOfStudy: "",
-    startMonth: "",
-    startYear: "",
-    endMonth: "",
-    endYear: "",
+    school: "Havard",
+    degree: "Computer Science",
+    fieldOfStudy: "transistors",
+    startMonth: "02",
+    startYear: "2020",
+    endMonth: "01",
+    endYear: "2023",
     toPresent: false,
   });
 

@@ -1,4 +1,4 @@
-import EmptyAvatar from "../assets/empty-avatar.png";
+import EmptyAvatar from "./empty-avatar";
 import Input from "./input";
 import Title from "./title";
 
