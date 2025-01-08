@@ -1,6 +1,7 @@
-const EmptyAvatar = ({ onClick }) => {
+const EmptyAvatar = ({ onClick, type }) => {
   return (
     <button
+      type={type}
       className="flex w-1/2 flex-col items-center justify-center rounded-lg bg-gray-100"
       onClick={onClick}
     >
@@ -75,7 +76,9 @@ const EmptyAvatar = ({ onClick }) => {
           />
         </g>
       </svg>
-      <span>Upload your profile picture upto 500kbs</span>
+      <span className="text-xs text-gray-500">
+        Upload your profile picture <br /> (JPG or PNG, max size: 500MB)
+      </span>
     </button>
   );
 };

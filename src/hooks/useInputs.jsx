@@ -1,12 +1,13 @@
 import { useState } from "react";
+import avatarIcon from "../assets/avatar-icon.png";
 
 const useInputs = () => {
   const [personal, setPersonal] = useState({
-    avatar: "",
+    avatar: avatarIcon,
     firstName: "John",
     lastName: "Smith",
     jobTitle: "Programmer",
-    phoneNumber: "000-000-0000",
+    phoneNumber: "954358968",
     emailAddress: "johnsmith@email.com",
     website: "www.johnsmith.com",
     city: "London",

@@ -25,12 +25,19 @@ const Output = ({
       <section className="flex w-full bg-gray-300 p-4 md:h-full md:min-h-screen md:w-1/2">
         <div className="flex w-full flex-1 flex-col gap-4 bg-white p-4 shadow-md">
           <div className="flex justify-between">
-            <div className="flex flex-col">
-              <img src={personal.avatar} />
-              <span>
-                {personal.firstName} <span>{personal.lastName}</span>
-              </span>
-              <span>{personal.jobTitle}</span>
+            <div className="flex gap-1">
+              {personal.avatar === "" ? null : (
+                <img
+                  className="h-10 w-10 rounded-full object-contain"
+                  src={personal.avatar}
+                />
+              )}
+              <div className="flex flex-col gap-1">
+                <span>
+                  {personal.firstName} <span>{personal.lastName}</span>
+                </span>
+                <span>{personal.jobTitle}</span>
+              </div>
             </div>
             <div className="flex flex-col gap-2">
               <span className="flex gap-1">

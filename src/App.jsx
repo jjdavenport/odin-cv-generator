@@ -28,7 +28,7 @@ function App() {
           languages={languages}
           certificates={certificates}
         />
-        <Inputs />
+        <Inputs personal={personal} setPersonal={setPersonal} />
       </div>
     </>
   );
