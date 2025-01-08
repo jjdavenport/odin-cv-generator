@@ -1,4 +1,5 @@
 import { useState } from "react";
+import useData from "../hooks/useData";
 import Button from "./button";
 import profileIcon from "../assets/profile-icon.svg";
 import briefcaseIcon from "../assets/briefcase-icon.svg";
@@ -14,11 +15,20 @@ import Certificates from "./certificates";
 import Personal from "./personal";
 
 const Inputs = () => {
+  const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
 
   const buttons = [
-    { img: profileIcon, title: "Personal Details", component: Personal },
-    { img: briefcaseIcon, title: "Experience", component: Experience },
+    {
+      img: profileIcon,
+      title: "Personal Details",
+      component: Personal,
+    },
+    {
+      img: briefcaseIcon,
+      title: "Experience",
+      component: Experience,
+    },
     { img: graduationIcon, title: "Education", component: Education },
     { img: lightningIcon, title: "Skills", component: Skills },
     { img: languageIcon, title: "Languages", component: Languages },
@@ -26,11 +36,16 @@ const Inputs = () => {
   ];
 
   const ActiveComponent = buttons[active]?.component;
-
   return (
     <main className="flex w-full flex-col gap-4 p-4 md:h-full md:min-h-screen md:w-1/2">
       {ActiveComponent ? (
-        <ActiveComponent />
+        <ActiveComponent
+          months={months}
+          years={years}
+          languageProficiency={languageProficiency}
+          skillsProficiency={skillsProficiency}
+          onClose={() => setActive(null)}
+        />
       ) : (
         <>
           <h1 className="text-xl font-medium">CV</h1>

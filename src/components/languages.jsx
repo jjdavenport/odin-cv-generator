@@ -1,14 +1,17 @@
 import Input from "./input";
+import Dropdown from "./dropdown";
 import AddButton from "./add-button";
+import Title from "./title";
 
-const Languages = () => {
+const Languages = ({ languageProficiency }) => {
   return (
     <>
-      <form noValidate>
-        <AddButton text="Add" />
-        <div>
+      <form noValidate className="flex flex-col gap-4">
+        <Title text="Languages" />
+        <AddButton type="button" text="Add" />
+        <div className="flex gap-4">
           <Input label="Language" type="text" />
-          <Input label="Proficiency" type="text" />
+          <Dropdown type={languageProficiency} />
         </div>
       </form>
     </>

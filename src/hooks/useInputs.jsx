@@ -36,11 +36,11 @@ const useInputs = () => {
     toPresent: false,
   });
 
-  const [skills, setSkills] = useState([]);
-  const [languages, setLanguages] = useState([]);
+  const [skills, setSkills] = useState(["JavaScript", "Intermediate"]);
+  const [languages, setLanguages] = useState(["English", "Native"]);
   const [certificates, setCertificates] = useState({
-    certificateName: "",
-    credentialWebsite: "",
+    name: "",
+    website: "",
     issuingOrganization: "",
     startMonth: "",
     startYear: "",

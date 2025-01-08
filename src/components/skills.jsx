@@ -1,14 +1,17 @@
 import Input from "./input";
+import Dropdown from "./dropdown";
 import AddButton from "./add-button";
+import Title from "./title";
 
-const Skills = () => {
+const Skills = ({ skillsProficiency }) => {
   return (
     <>
-      <form noValidate>
+      <form noValidate className="flex flex-col gap-4">
+        <Title text="Skills" />
         <AddButton title="Add" />
-        <div>
-          <Input label="Skill Name" />
-          <Input label="Proficiency" />
+        <div className="flex gap-4">
+          <Input label="Language" type="text" />
+          <Dropdown type={skillsProficiency} />
         </div>
       </form>
     </>
