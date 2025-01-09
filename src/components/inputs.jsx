@@ -14,7 +14,14 @@ import Skills from "./skills";
 import Certificates from "./certificates";
 import Personal from "./personal";
 
-const Inputs = ({ setPersonal, personal, experience, setExperience }) => {
+const Inputs = ({
+  setPersonal,
+  personal,
+  experience,
+  setExperience,
+  education,
+  setEducation,
+}) => {
   const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
 
@@ -40,6 +47,8 @@ const Inputs = ({ setPersonal, personal, experience, setExperience }) => {
     <main className="flex w-full flex-col gap-10 p-4 md:h-full md:min-h-screen md:w-1/2">
       {ActiveComponent ? (
         <ActiveComponent
+          education={education}
+          setEducation={setEducation}
           setExperience={setExperience}
           experience={experience}
           personal={personal}

@@ -30,11 +30,12 @@ const useInputs = () => {
     school: "Havard",
     degree: "Computer Science",
     fieldOfStudy: "transistors",
-    startMonth: "02",
-    startYear: "2020",
-    endMonth: "01",
-    endYear: "2023",
+    startMonth: "",
+    startYear: "",
+    endMonth: "",
+    endYear: "",
     toPresent: false,
+    achievements: "",
   });
 
   const [skills, setSkills] = useState(["JavaScript", "Intermediate"]);

@@ -29,6 +29,8 @@ function App() {
           certificates={certificates}
         />
         <Inputs
+          education={education}
+          setEducation={setEducation}
           experience={experience}
           setExperience={setExperience}
           personal={personal}

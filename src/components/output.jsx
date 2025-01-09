@@ -120,15 +120,45 @@ const Output = ({
           <div className="flex flex-col">
             <span className="uppercase">Education</span>
             <div className="flex justify-between">
-              <div className="flex gap-1">
-                <span>{education.school}</span>
-                <span>-</span>
-                <span>{education.degree}</span>
+              <div className="flex flex-col">
+                <div className="flex gap-1">
+                  <span>{education.school}</span>
+                  <span>-</span>
+                  <span>{education.degree}</span>
+                </div>
+                <ul>
+                  <li className="list-inside list-disc">
+                    {education.achievements}
+                  </li>
+                </ul>
               </div>
-              <div>
-                <span>{education.startMonth}</span>
-                <span>/</span>
-                <span>{education.startYear}</span>
+              <div className="flex gap-1">
+                {education.startMonth === "" &&
+                education.startYear === "" ? null : (
+                  <>
+                    <div>
+                      <span>
+                        {monthNumber(education.startMonth)}/
+                        <span>{education.startYear}</span>
+                      </span>
+                    </div>
+                    <span>-</span>
+                  </>
+                )}
+                {education.endMonth === "" &&
+                education.endYear === "" &&
+                education.toPresent === false ? null : (
+                  <div>
+                    {education.toPresent ? (
+                      <span>Present</span>
+                    ) : (
+                      <span>
+                        {monthNumber(education.endMonth)}/
+                        <span>{education.endYear}</span>
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>

@@ -3,12 +3,8 @@ import AddButton from "./add-button";
 import Title from "./title";
 import Dropdown from "./dropdown";
 import TextArea from "./textarea";
-import { useEffect } from "react";
 
 const Experience = ({ onClose, months, years, setExperience, experience }) => {
-  useEffect(() => {
-    console.log(experience.startMonth);
-  }, [experience.startMonth]);
   return (
     <>
       <form noValidate className="flex flex-col gap-4">
