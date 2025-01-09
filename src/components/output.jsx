@@ -1,7 +1,7 @@
-import { useState } from "react";
 import phoneIcon from "../assets/phone-icon.svg";
 import mailIcon from "../assets/mail-icon.svg";
 import locationIcon from "../assets/location-icon.svg";
+import linkIcon from "../assets/link-icon.svg";
 
 const Output = ({
   personal,
@@ -11,14 +11,23 @@ const Output = ({
   languages,
   certificates,
 }) => {
-  const [hidden, setHidden] = useState({
-    personalI: false,
-    experienceI: false,
-    educationI: false,
-    skillsI: false,
-    languagesI: false,
-    certificatesI: false,
-  });
+  const monthNumber = (month) => {
+    const months = {
+      January: "01",
+      February: "02",
+      March: "03",
+      April: "04",
+      May: "05",
+      June: "06",
+      July: "07",
+      August: "08",
+      September: "09",
+      October: "10",
+      November: "11",
+      December: "12",
+    };
+    return months[month];
+  };
 
   return (
     <>
@@ -59,13 +68,52 @@ const Output = ({
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <span>{experience.jobTitle}</span>
-                <span>{experience.company}</span>
+                {experience.companyWebsite === "" ? (
+                  <span>{experience.company}</span>
+                ) : (
+                  <a
+                    className="flex gap-1"
+                    target="_blank"
+                    href={`https://${experience.companyWebsite}`}
+                  >
+                    {experience.company}
+                    <img className="w-3 object-contain" src={linkIcon} />
+                  </a>
+                )}
                 <span>{experience.jobDescription}</span>
+                <ul>
+                  <li className="list-inside list-disc">
+                    {experience.accomplishments}
+                  </li>
+                </ul>
               </div>
-              <div>
-                <span>
-                  {experience.startMonth}/<span>{experience.startYear}</span>
-                </span>
+              <div className="flex gap-1">
+                {experience.startMonth === "" &&
+                experience.startYear === "" ? null : (
+                  <>
+                    <div>
+                      <span>
+                        {monthNumber(experience.startMonth)}/
+                        <span>{experience.startYear}</span>
+                      </span>
+                    </div>
+                    <span>-</span>
+                  </>
+                )}
+                {experience.endMonth === "" &&
+                experience.endYear === "" &&
+                experience.toPresent === false ? null : (
+                  <div>
+                    {experience.toPresent ? (
+                      <span>Present</span>
+                    ) : (
+                      <span>
+                        {monthNumber(experience.endMonth)}/
+                        <span>{experience.endYear}</span>
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
           </div>

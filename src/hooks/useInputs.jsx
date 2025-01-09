@@ -18,12 +18,12 @@ const useInputs = () => {
     jobTitle: "Programmer",
     company: "Mega Corp",
     companyWebsite: "",
-    startMonth: "09",
-    startYear: "2023",
-    endMonth: "09",
-    endYear: "2023",
+    startMonth: "",
+    startYear: "",
+    endMonth: "",
+    endYear: "",
     toPresent: false,
-    jobDescription: "Front end developer for Mega Corp.",
+    accomplishments: "Front end developer for Mega Corp.",
   });
 
   const [education, setEducation] = useState({
