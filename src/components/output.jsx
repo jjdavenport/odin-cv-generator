@@ -22,7 +22,7 @@ const Output = ({
 
   return (
     <>
-      <section className="flex w-full bg-gray-300 p-4 md:h-full md:min-h-screen md:w-1/2">
+      <section className="flex w-full bg-gray-300 p-4 text-xs md:h-full md:min-h-screen md:w-1/2">
         <div className="flex w-full flex-1 flex-col gap-4 bg-white p-4 shadow-md">
           <div className="flex justify-between">
             <div className="flex gap-1">
@@ -32,11 +32,11 @@ const Output = ({
                   src={personal.avatar}
                 />
               )}
-              <div className="flex flex-col gap-1">
-                <span>
+              <div className="flex flex-col">
+                <span className="text-lg">
                   {personal.firstName} <span>{personal.lastName}</span>
                 </span>
-                <span>{personal.jobTitle}</span>
+                <span className="text-lg">{personal.jobTitle}</span>
               </div>
             </div>
             <div className="flex flex-col gap-2">

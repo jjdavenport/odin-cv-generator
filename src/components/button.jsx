@@ -11,7 +11,7 @@ const Button = ({ img, title, onClick }) => {
         </div>
         <svg
           fill="#000000"
-          className="w-6"
+          className="w-4"
           version="1.1"
           id="Layer_1"
           xmlns="http://www.w3.org/2000/svg"

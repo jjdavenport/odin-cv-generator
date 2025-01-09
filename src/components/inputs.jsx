@@ -37,7 +37,7 @@ const Inputs = ({ setPersonal, personal }) => {
 
   const ActiveComponent = buttons[active]?.component;
   return (
-    <main className="flex w-full flex-col gap-4 p-4 md:h-full md:min-h-screen md:w-1/2">
+    <main className="flex w-full flex-col gap-10 p-4 md:h-full md:min-h-screen md:w-1/2">
       {ActiveComponent ? (
         <ActiveComponent
           personal={personal}
@@ -51,7 +51,7 @@ const Inputs = ({ setPersonal, personal }) => {
       ) : (
         <>
           <h1 className="text-xl font-medium">CV</h1>
-          <ul className="flex flex-col gap-10 divide-y-2">
+          <ul className="flex flex-col gap-10 divide-y">
             {buttons.map((button, index) => (
               <Button
                 key={index}
@@ -61,6 +61,9 @@ const Inputs = ({ setPersonal, personal }) => {
               />
             ))}
           </ul>
+          <button className="w-full rounded-lg p-2 outline outline-1">
+            Download
+          </button>
         </>
       )}
     </main>

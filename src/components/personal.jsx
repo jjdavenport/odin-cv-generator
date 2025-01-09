@@ -1,3 +1,4 @@
+import useDrop from "../hooks/useDrop";
 import EmptyAvatar from "./empty-avatar";
 import Input from "./input";
 import Title from "./title";
@@ -5,15 +6,35 @@ import Avatar from "./avatar";
 import cameraIcon from "../assets/camera-icon.svg";
 
 const Personal = ({ onClose, setPersonal, personal }) => {
+  const {
+    handleUpload,
+    fileInputRef,
+    handleDragEnter,
+    handleDragLeave,
+    handleDragOver,
+  } = useDrop({ setPersonal });
   return (
     <>
       <form noValidate className="flex flex-col gap-4">
         <Title onClick={onClose} text="Personal Details" />
         <div className="flex w-full gap-2">
           {personal.avatar === "" ? (
-            <EmptyAvatar cameraIcon={cameraIcon} type="button" />
+            <EmptyAvatar
+              fileInputRef={fileInputRef}
+              handleDragEnter={handleDragEnter}
+              handleDragLeave={handleDragLeave}
+              handleUpload={handleUpload}
+              handleDragOver={handleDragOver}
+              cameraIcon={cameraIcon}
+              type="button"
+            />
           ) : (
             <Avatar
+              fileInputRef={fileInputRef}
+              handleDragEnter={handleDragEnter}
+              handleDragLeave={handleDragLeave}
+              handleUpload={handleUpload}
+              handleDragOver={handleDragOver}
               onClose={() => setPersonal((prev) => ({ ...prev, avatar: "" }))}
               cameraIcon={cameraIcon}
               img={personal.avatar}

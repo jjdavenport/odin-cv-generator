@@ -1,10 +1,27 @@
-const EmptyAvatar = ({ onClick, type }) => {
+const EmptyAvatar = ({
+  type,
+  fileInputRef,
+  handleDragEnter,
+  handleDragLeave,
+  handleUpload,
+  handleDragOver,
+}) => {
   return (
     <button
+      onDragEnter={handleDragEnter}
+      onDragOver={handleDragOver}
+      onDragLeave={handleDragLeave}
+      onDrop={handleUpload}
       type={type}
       className="flex w-1/2 flex-col items-center justify-center rounded-lg bg-gray-100"
-      onClick={onClick}
+      onClick={() => fileInputRef.current.click()}
     >
+      <input
+        onChange={handleUpload}
+        ref={fileInputRef}
+        type="file"
+        className="hidden"
+      />
       <svg
         xmlns="http://www.w3.org/2000/svg"
         version="1.1"
