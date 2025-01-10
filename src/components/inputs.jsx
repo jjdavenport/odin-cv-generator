@@ -21,6 +21,8 @@ const Inputs = ({
   setExperience,
   education,
   setEducation,
+  certificate,
+  setCertificate,
 }) => {
   const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
@@ -47,6 +49,8 @@ const Inputs = ({
     <main className="flex w-full flex-col gap-10 p-4 md:h-full md:min-h-screen md:w-1/2">
       {ActiveComponent ? (
         <ActiveComponent
+          certificate={certificate}
+          setCertificate={setCertificate}
           education={education}
           setEducation={setEducation}
           setExperience={setExperience}

@@ -9,7 +9,7 @@ const Output = ({
   education,
   skills,
   languages,
-  certificates,
+  certificate,
 }) => {
   const monthNumber = (month) => {
     const months = {
@@ -176,15 +176,59 @@ const Output = ({
               <span>{languages[1]}</span>
             </div>
           </div>
-          {certificates !== "" ? null : (
-            <div>
-              <span className="uppercase">Certificates</span>
-              <div className="flex justify-between">
-                <span>{certificates.name}</span>
-                <span>{certificates.website}</span>
+          <div className="flex flex-col gap-4">
+            <span className="uppercase">Certificates</span>
+            <div className="flex justify-between">
+              <div className="flex flex-col">
+                <span>{certificate.certificationName}</span>
+                {certificate.credentialURL === "" ? (
+                  <span>{certificate.issuingOrganisation}</span>
+                ) : (
+                  <a
+                    className="flex gap-1"
+                    target="_blank"
+                    href={`https://${certificate.credentialURL}`}
+                  >
+                    {certificate.issuingOrganisation}
+                    <img className="w-3 object-contain" src={linkIcon} />
+                  </a>
+                )}
+                <ul>
+                  <li className="list-inside list-disc">
+                    {certificate.description}
+                  </li>
+                </ul>
+              </div>
+              <div className="flex gap-1">
+                {certificate.startMonth === "" &&
+                certificate.startYear === "" ? null : (
+                  <>
+                    <div>
+                      <span>
+                        {monthNumber(certificate.startMonth)}/
+                        <span>{certificate.startYear}</span>
+                      </span>
+                    </div>
+                    <span>-</span>
+                  </>
+                )}
+                {certificate.endMonth === "" &&
+                certificate.endYear === "" &&
+                certificate.doesNotExpire === false ? null : (
+                  <div>
+                    {certificate.doesNotExpire ? (
+                      <span>Present</span>
+                    ) : (
+                      <span>
+                        {monthNumber(certificate.endMonth)}/
+                        <span>{certificate.endYear}</span>
+                      </span>
+                    )}
+                  </div>
+                )}
               </div>
             </div>
-          )}
+          </div>
         </div>
       </section>
     </>

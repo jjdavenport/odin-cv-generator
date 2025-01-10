@@ -14,8 +14,8 @@ function App() {
     setSkills,
     languages,
     setLanguages,
-    certificates,
-    setCertificates,
+    certificate,
+    setCertificate,
   } = useInputs();
   return (
     <>
@@ -26,9 +26,11 @@ function App() {
           personal={personal}
           skills={skills}
           languages={languages}
-          certificates={certificates}
+          certificate={certificate}
         />
         <Inputs
+          certificate={certificate}
+          setCertificate={setCertificate}
           education={education}
           setEducation={setEducation}
           experience={experience}

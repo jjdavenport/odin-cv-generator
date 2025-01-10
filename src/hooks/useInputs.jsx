@@ -40,9 +40,9 @@ const useInputs = () => {
 
   const [skills, setSkills] = useState(["JavaScript", "Intermediate"]);
   const [languages, setLanguages] = useState(["English", "Native"]);
-  const [certificates, setCertificates] = useState({
-    name: "",
-    website: "",
+  const [certificate, setCertificate] = useState({
+    certificationName: "",
+    credentialURL: "",
     issuingOrganization: "",
     startMonth: "",
     startYear: "",
@@ -63,8 +63,8 @@ const useInputs = () => {
     setSkills,
     languages,
     setLanguages,
-    certificates,
-    setCertificates,
+    certificate,
+    setCertificate,
   };
 };
 
