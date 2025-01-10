@@ -10,9 +10,9 @@ import certificateIcon from "../assets/certificate-icon.svg";
 import Education from "./education";
 import Experience from "./experience";
 import Languages from "./languages";
-import Skills from "./skills";
 import Certificates from "./certificates";
 import Personal from "./personal";
+import Skills from "./skills";
 
 const Inputs = ({
   setPersonal,
@@ -23,6 +23,10 @@ const Inputs = ({
   setEducation,
   certificate,
   setCertificate,
+  skills,
+  setSkills,
+  languages,
+  setLanguages,
 }) => {
   const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
@@ -49,6 +53,10 @@ const Inputs = ({
     <main className="flex w-full flex-col gap-10 p-4 md:h-full md:min-h-screen md:w-1/2">
       {ActiveComponent ? (
         <ActiveComponent
+          languages={languages}
+          setLanguages={setLanguages}
+          skills={skills}
+          setSkills={setSkills}
           certificate={certificate}
           setCertificate={setCertificate}
           education={education}

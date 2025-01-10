@@ -38,8 +38,16 @@ const useInputs = () => {
     achievements: "",
   });
 
-  const [skills, setSkills] = useState(["JavaScript", "Intermediate"]);
-  const [languages, setLanguages] = useState(["English", "Native"]);
+  const [skills, setSkills] = useState({
+    skill: "",
+    proficiency: "",
+  });
+
+  const [languages, setLanguages] = useState({
+    language: "",
+    proficiency: "",
+  });
+
   const [certificate, setCertificate] = useState({
     certificationName: "",
     credentialURL: "",

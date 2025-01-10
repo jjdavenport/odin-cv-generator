@@ -3,15 +3,35 @@ import Dropdown from "./dropdown";
 import AddButton from "./add-button";
 import Title from "./title";
 
-const Skills = ({ skillsProficiency }) => {
+const Skills = ({ skillsProficiency, skills, setSkills }) => {
   return (
     <>
       <form noValidate className="flex flex-col gap-4">
         <Title text="Skills" />
         <AddButton title="Add" />
         <div className="flex gap-4">
-          <Input label="Language" type="text" />
-          <Dropdown type={skillsProficiency} />
+          <Input
+            onChange={(e) =>
+              setSkills((prev) => ({
+                ...prev,
+                skill: e.target.value,
+              }))
+            }
+            value={skills.skill}
+            label="Skill Name"
+            type="text"
+          />
+          <Dropdown
+            onChange={(e) =>
+              setSkills((prev) => ({
+                ...prev,
+                proficiency: e.target.value,
+              }))
+            }
+            value={skills.proficiency}
+            placeholder="Proficiency"
+            type={skillsProficiency}
+          />
         </div>
       </form>
     </>

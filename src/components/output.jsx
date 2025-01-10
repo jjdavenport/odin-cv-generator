@@ -49,15 +49,15 @@ const Output = ({
               </div>
             </div>
             <div className="flex flex-col gap-2">
-              <span className="flex gap-1">
+              <span className="flex items-center gap-1">
                 <img className="w-3 object-contain" src={phoneIcon} />
                 {personal.phoneNumber}
               </span>
-              <span className="flex gap-1">
+              <span className="flex items-center gap-1">
                 <img className="w-3 object-contain" src={mailIcon} />
                 {personal.emailAddress}
               </span>
-              <span className="flex gap-1">
+              <span className="flex items-center gap-1">
                 <img className="w-3 object-contain" src={locationIcon} />
                 {personal.city},<span>{personal.stateCountry}</span>
               </span>
@@ -81,11 +81,13 @@ const Output = ({
                   </a>
                 )}
                 <span>{experience.jobDescription}</span>
-                <ul>
-                  <li className="list-inside list-disc">
-                    {experience.accomplishments}
-                  </li>
-                </ul>
+                {experience.accomplishments === "" ? null : (
+                  <ul>
+                    <li className="list-inside list-disc">
+                      {experience.accomplishments}
+                    </li>
+                  </ul>
+                )}
               </div>
               <div className="flex gap-1">
                 {experience.startMonth === "" &&
@@ -126,11 +128,13 @@ const Output = ({
                   <span>-</span>
                   <span>{education.degree}</span>
                 </div>
-                <ul>
-                  <li className="list-inside list-disc">
-                    {education.achievements}
-                  </li>
-                </ul>
+                {education.achievements === "" ? null : (
+                  <ul>
+                    <li className="list-inside list-disc">
+                      {education.achievements}
+                    </li>
+                  </ul>
+                )}
               </div>
               <div className="flex gap-1">
                 {education.startMonth === "" &&
@@ -162,20 +166,6 @@ const Output = ({
               </div>
             </div>
           </div>
-          <div>
-            <span className="uppercase">Skills</span>
-            <div className="flex justify-between">
-              <span>{skills[0]}</span>
-              <span>{skills[1]}</span>
-            </div>
-          </div>
-          <div>
-            <span className="uppercase">Languages</span>
-            <div className="flex justify-between">
-              <span>{languages[0]}</span>
-              <span>{languages[1]}</span>
-            </div>
-          </div>
           <div className="flex flex-col gap-4">
             <span className="uppercase">Certificates</span>
             <div className="flex justify-between">
@@ -193,11 +183,13 @@ const Output = ({
                     <img className="w-3 object-contain" src={linkIcon} />
                   </a>
                 )}
-                <ul>
-                  <li className="list-inside list-disc">
-                    {certificate.description}
-                  </li>
-                </ul>
+                {certificate.description === "" ? null : (
+                  <ul>
+                    <li className="list-inside list-disc">
+                      {certificate.description}
+                    </li>
+                  </ul>
+                )}
               </div>
               <div className="flex gap-1">
                 {certificate.startMonth === "" &&
@@ -227,6 +219,20 @@ const Output = ({
                   </div>
                 )}
               </div>
+            </div>
+          </div>
+          <div>
+            <span className="uppercase">Skills</span>
+            <div className="flex justify-between">
+              <span>{skills.skill}</span>
+              <span>{skills.proficiency}</span>
+            </div>
+          </div>
+          <div>
+            <span className="uppercase">Languages</span>
+            <div className="flex justify-between">
+              <span>{languages.language}</span>
+              <span>{languages.proficiency}</span>
             </div>
           </div>
         </div>
