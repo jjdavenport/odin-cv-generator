@@ -7,7 +7,7 @@ import TextArea from "./textarea";
 const Experience = ({ onClose, months, years, setExperience, experience }) => {
   return (
     <>
-      <form noValidate className="flex flex-col gap-4">
+      <form noValidate className="flex flex-col gap-6">
         <Title onClick={onClose} type="button" text="Experience" />
         <AddButton type="button" text="Add Experience" />
         <div className="flex flex-col gap-4">
@@ -41,7 +41,7 @@ const Experience = ({ onClose, months, years, setExperience, experience }) => {
         </div>
         <div className="flex w-full gap-4">
           <div className="w-full">
-            <span>Start Date</span>
+            <span className="text-sm">Start Date</span>
             <div className="flex w-full gap-4">
               <Dropdown
                 value={experience.startMonth}
@@ -68,14 +68,14 @@ const Experience = ({ onClose, months, years, setExperience, experience }) => {
             </div>
           </div>
           <div className="w-full">
-            <span>End Date</span>
+            <span className="text-sm">End Date</span>
             <div className="flex w-full gap-4">
               <Dropdown
                 value={experience.endMonth}
                 onChange={(e) =>
                   setExperience((prev) => ({
                     ...prev,
-                    startMonth: e.target.value,
+                    endMonth: e.target.value,
                   }))
                 }
                 type={months}
@@ -86,7 +86,7 @@ const Experience = ({ onClose, months, years, setExperience, experience }) => {
                 onChange={(e) =>
                   setExperience((prev) => ({
                     ...prev,
-                    startYear: e.target.value,
+                    endYear: e.target.value,
                   }))
                 }
                 type={years}
@@ -104,7 +104,7 @@ const Experience = ({ onClose, months, years, setExperience, experience }) => {
                 checked={experience.toPresent}
                 type="checkbox"
               />
-              <span>Present</span>
+              <span className="text-sm">Present</span>
             </div>
           </div>
         </div>

@@ -16,11 +16,14 @@ function App() {
     setLanguages,
     certificate,
     setCertificate,
+    hidden,
+    setHidden,
   } = useInputs();
   return (
     <>
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col font-custom md:flex-row">
         <Output
+          hidden={hidden}
           education={education}
           experience={experience}
           personal={personal}
@@ -29,6 +32,7 @@ function App() {
           certificate={certificate}
         />
         <Inputs
+          setHidden={setHidden}
           languages={languages}
           setLanguages={setLanguages}
           skills={skills}

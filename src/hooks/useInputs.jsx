@@ -2,6 +2,14 @@ import { useState } from "react";
 import avatarIcon from "../assets/avatar-icon.png";
 
 const useInputs = () => {
+  const [hidden, setHidden] = useState({
+    experience: false,
+    education: false,
+    certificates: false,
+    skills: false,
+    languages: false,
+  });
+
   const [personal, setPersonal] = useState({
     avatar: avatarIcon,
     firstName: "John",
@@ -73,6 +81,8 @@ const useInputs = () => {
     setLanguages,
     certificate,
     setCertificate,
+    hidden,
+    setHidden,
   };
 };
 

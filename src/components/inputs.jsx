@@ -13,6 +13,7 @@ import Languages from "./languages";
 import Certificates from "./certificates";
 import Personal from "./personal";
 import Skills from "./skills";
+import downloadIcon from "../assets/download-icon.svg";
 
 const Inputs = ({
   setPersonal,
@@ -50,7 +51,7 @@ const Inputs = ({
 
   const ActiveComponent = buttons[active]?.component;
   return (
-    <main className="flex w-full flex-col gap-10 p-4 md:h-full md:min-h-screen md:w-1/2">
+    <main className="flex w-full flex-col gap-2 p-8 md:h-full md:min-h-screen md:w-1/2">
       {ActiveComponent ? (
         <ActiveComponent
           languages={languages}
@@ -73,20 +74,23 @@ const Inputs = ({
         />
       ) : (
         <>
-          <h1 className="text-xl font-medium">CV</h1>
-          <ul className="flex flex-col gap-10 divide-y">
-            {buttons.map((button, index) => (
-              <Button
-                key={index}
-                onClick={() => setActive(index)}
-                img={button.img}
-                title={button.title}
-              />
-            ))}
-          </ul>
-          <button className="w-full rounded-lg p-2 outline outline-1">
-            Download
-          </button>
+          <h1 className="text-xl font-bold">CV</h1>
+          <div className="flex flex-col gap-10">
+            <ul className="flex flex-col gap-6 divide-y">
+              {buttons.map((button, index) => (
+                <Button
+                  key={index}
+                  onClick={() => setActive(index)}
+                  img={button.img}
+                  title={button.title}
+                />
+              ))}
+            </ul>
+            <button className="flex items-center justify-center gap-2 rounded-lg bg-blue-600 p-3 text-white transition-colors duration-300 ease-in-out hover:bg-blue-700">
+              <img className="w-4 pb-1" src={downloadIcon} />
+              Download
+            </button>
+          </div>
         </>
       )}
     </main>

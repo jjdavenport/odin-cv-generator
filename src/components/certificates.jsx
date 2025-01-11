@@ -13,7 +13,7 @@ const Certificates = ({
 }) => {
   return (
     <>
-      <form noValidate className="flex flex-col gap-4">
+      <form noValidate className="flex flex-col gap-6">
         <Title onClick={onClose} type="button" text="Certificates" />
         <AddButton type="button" text="Add" />
         <div className="flex flex-col gap-4">
@@ -53,7 +53,7 @@ const Certificates = ({
         </div>
         <div className="flex w-full gap-4">
           <div className="w-full">
-            <span>Issue Date</span>
+            <span className="text-sm uppercase">Issue Date</span>
             <div className="flex w-full gap-4">
               <Dropdown
                 value={certificate.startMonth}
@@ -80,7 +80,7 @@ const Certificates = ({
             </div>
           </div>
           <div className="w-full">
-            <span>Expiration Date</span>
+            <span className="text-sm uppercase">Expiration Date</span>
             <div className="flex w-full gap-4">
               <Dropdown
                 value={certificate.endMonth}
@@ -116,7 +116,7 @@ const Certificates = ({
                 checked={certificate.doesNotExpire}
                 type="checkbox"
               />
-              <span>Does not expire</span>
+              <span className="text-sm">Does not expire</span>
             </div>
           </div>
         </div>

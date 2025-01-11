@@ -31,7 +31,7 @@ const Output = ({
 
   return (
     <>
-      <section className="flex w-full bg-gray-300 p-4 text-xs md:h-full md:min-h-screen md:w-1/2">
+      <section className="bg-dots flex w-full bg-gray-200 bg-cover bg-no-repeat p-4 text-xs md:h-full md:min-h-screen md:w-1/2">
         <div className="flex w-full flex-1 flex-col gap-4 bg-white p-4 shadow-md">
           <div className="flex justify-between">
             <div className="flex gap-1">
@@ -42,10 +42,10 @@ const Output = ({
                 />
               )}
               <div className="flex flex-col">
-                <span className="text-lg">
+                <span className="text-lg font-bold">
                   {personal.firstName} <span>{personal.lastName}</span>
                 </span>
-                <span className="text-lg">{personal.jobTitle}</span>
+                <span>{personal.jobTitle}</span>
               </div>
             </div>
             <div className="flex flex-col gap-2">
@@ -64,15 +64,17 @@ const Output = ({
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <span className="uppercase">Experience</span>
+            <span className="border-b border-dashed border-gray-500 py-2 uppercase tracking-widest">
+              Experience
+            </span>
             <div className="flex justify-between">
               <div className="flex flex-col">
-                <span>{experience.jobTitle}</span>
+                <span className="font-medium">{experience.jobTitle}</span>
                 {experience.companyWebsite === "" ? (
-                  <span>{experience.company}</span>
+                  <span className="text-gray-500">{experience.company}</span>
                 ) : (
                   <a
-                    className="flex gap-1"
+                    className="flex gap-1 text-gray-500"
                     target="_blank"
                     href={`https://${experience.companyWebsite}`}
                   >
@@ -89,7 +91,7 @@ const Output = ({
                   </ul>
                 )}
               </div>
-              <div className="flex gap-1">
+              <div className="flex gap-1 text-gray-500">
                 {experience.startMonth === "" &&
                 experience.startYear === "" ? null : (
                   <>
@@ -107,7 +109,7 @@ const Output = ({
                 experience.toPresent === false ? null : (
                   <div>
                     {experience.toPresent ? (
-                      <span>Present</span>
+                      <span className="text-gray-500">Present</span>
                     ) : (
                       <span>
                         {monthNumber(experience.endMonth)}/
@@ -119,11 +121,13 @@ const Output = ({
               </div>
             </div>
           </div>
-          <div className="flex flex-col">
-            <span className="uppercase">Education</span>
+          <div className="flex flex-col gap-4">
+            <span className="border-b border-dashed border-gray-500 py-2 uppercase">
+              Education
+            </span>
             <div className="flex justify-between">
               <div className="flex flex-col">
-                <div className="flex gap-1">
+                <div className="flex gap-1 text-gray-500">
                   <span>{education.school}</span>
                   <span>-</span>
                   <span>{education.degree}</span>
@@ -154,7 +158,7 @@ const Output = ({
                 education.toPresent === false ? null : (
                   <div>
                     {education.toPresent ? (
-                      <span>Present</span>
+                      <span className="text-gray-500">Present</span>
                     ) : (
                       <span>
                         {monthNumber(education.endMonth)}/
@@ -167,7 +171,9 @@ const Output = ({
             </div>
           </div>
           <div className="flex flex-col gap-4">
-            <span className="uppercase">Certificates</span>
+            <span className="border-b border-dashed border-gray-500 py-2 uppercase">
+              Certificates
+            </span>
             <div className="flex justify-between">
               <div className="flex flex-col">
                 <span>{certificate.certificationName}</span>
@@ -221,15 +227,19 @@ const Output = ({
               </div>
             </div>
           </div>
-          <div>
-            <span className="uppercase">Skills</span>
+          <div className="flex flex-col gap-4">
+            <span className="border-b border-dashed border-gray-500 py-2 uppercase">
+              Skills
+            </span>
             <div className="flex justify-between">
               <span>{skills.skill}</span>
               <span>{skills.proficiency}</span>
             </div>
           </div>
-          <div>
-            <span className="uppercase">Languages</span>
+          <div className="flex flex-col gap-4">
+            <span className="border-b border-dashed border-gray-500 py-2 uppercase">
+              Languages
+            </span>
             <div className="flex justify-between">
               <span>{languages.language}</span>
               <span>{languages.proficiency}</span>

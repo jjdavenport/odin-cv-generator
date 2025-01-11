@@ -12,7 +12,7 @@ const Education = ({ onClose, months, years, setEducation, education }) => {
 
   return (
     <>
-      <form noValidate className="flex flex-col gap-4">
+      <form noValidate className="flex flex-col gap-6">
         <Title onClick={onClose} type="button" text="Education" />
         <AddButton type="button" text="Add Education" />
         <div className="flex flex-col gap-4">
@@ -109,7 +109,7 @@ const Education = ({ onClose, months, years, setEducation, education }) => {
                 checked={education.toPresent}
                 type="checkbox"
               />
-              <span>Present</span>
+              <span className="text-sm">Present</span>
             </div>
           </div>
         </div>
