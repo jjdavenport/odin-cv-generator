@@ -1,13 +1,11 @@
-import { useState } from "react";
-
-const Button = ({ img, title, onClick }) => {
-  const [hidden, setHidden] = useState(false);
+const Button = ({ img, title, onClick, setHidden, hidden }) => {
   const toggle = () => {
-    setHidden(!hidden);
+    setHidden((prev) => ({
+      ...prev,
+      [title.toLowerCase().replace(/\s/g, "")]:
+        !prev[title.toLowerCase().replace(/\s/g, "")],
+    }));
   };
-
-  const isPersonalDetails = title === "Personal Details";
-
   return (
     <li className="relative pt-6">
       <button
@@ -20,7 +18,7 @@ const Button = ({ img, title, onClick }) => {
         </div>
         <div className="flex gap-2">
           <svg
-            className="w-4 fill-gray-500 transition-all duration-300 ease-in-out group-hover:translate-x-1 group-hover:fill-gray-700"
+            className="w-4 fill-gray-500 transition-all duration-300 ease-in-out group-hover:translate-x-1 group-hover:scale-105 group-hover:fill-gray-700"
             version="1.1"
             id="Layer_1"
             xmlns="http://www.w3.org/2000/svg"
@@ -36,12 +34,12 @@ const Button = ({ img, title, onClick }) => {
           </svg>
         </div>
       </button>
-      {!isPersonalDetails && (
+      {title !== "Personal Details" && (
         <button
           onClick={toggle}
           className="group absolute right-6 top-[1.45rem] flex w-8 items-center justify-center"
         >
-          {hidden ? (
+          {hidden[title.toLowerCase()] ? (
             <svg
               className="w-6"
               viewBox="0 0 24 24"

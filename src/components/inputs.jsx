@@ -22,12 +22,14 @@ const Inputs = ({
   setExperience,
   education,
   setEducation,
-  certificate,
-  setCertificate,
+  certificates,
+  setCertificates,
   skills,
   setSkills,
   languages,
   setLanguages,
+  hidden,
+  setHidden,
 }) => {
   const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
@@ -58,8 +60,8 @@ const Inputs = ({
           setLanguages={setLanguages}
           skills={skills}
           setSkills={setSkills}
-          certificate={certificate}
-          setCertificate={setCertificate}
+          certificates={certificates}
+          setCertificates={setCertificates}
           education={education}
           setEducation={setEducation}
           setExperience={setExperience}
@@ -83,6 +85,8 @@ const Inputs = ({
                   onClick={() => setActive(index)}
                   img={button.img}
                   title={button.title}
+                  hidden={hidden}
+                  setHidden={setHidden}
                 />
               ))}
             </ul>

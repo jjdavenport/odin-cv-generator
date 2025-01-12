@@ -6,9 +6,9 @@ import Title from "./title";
 const Skills = ({ skillsProficiency, skills, setSkills }) => {
   return (
     <>
-      <form noValidate className="flex flex-col gap-4">
+      <form noValidate className="flex flex-col gap-6">
         <Title text="Skills" />
-        <AddButton title="Add" />
+        <AddButton type="button" title="Add" />
         <div className="flex gap-4">
           <Input
             onChange={(e) =>

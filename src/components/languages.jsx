@@ -6,7 +6,7 @@ import Title from "./title";
 const Languages = ({ languageProficiency, languages, setLanguages }) => {
   return (
     <>
-      <form noValidate className="flex flex-col gap-4">
+      <form noValidate className="flex flex-col gap-6">
         <Title text="Languages" />
         <AddButton type="button" text="Add" />
         <div className="flex gap-4">

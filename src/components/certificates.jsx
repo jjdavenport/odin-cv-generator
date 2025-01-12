@@ -8,8 +8,8 @@ const Certificates = ({
   onClose,
   months,
   years,
-  setCertificate,
-  certificate,
+  setCertificates,
+  certificates,
 }) => {
   return (
     <>
@@ -18,9 +18,9 @@ const Certificates = ({
         <AddButton type="button" text="Add" />
         <div className="flex flex-col gap-4">
           <Input
-            value={certificate.certificationName}
+            value={certificates.certificationName}
             onChange={(e) =>
-              setCertificate((prev) => ({
+              setCertificates((prev) => ({
                 ...prev,
                 certificationName: e.target.value,
               }))
@@ -29,9 +29,9 @@ const Certificates = ({
             type="text"
           />
           <Input
-            value={certificate.credentialURL}
+            value={certificates.credentialURL}
             onChange={(e) =>
-              setCertificate((prev) => ({
+              setCertificates((prev) => ({
                 ...prev,
                 credentialURL: e.target.value,
               }))
@@ -40,9 +40,9 @@ const Certificates = ({
             type="text"
           />
           <Input
-            value={certificate.issuingOrganisation}
+            value={certificates.issuingOrganisation}
             onChange={(e) =>
-              setCertificate((prev) => ({
+              setCertificates((prev) => ({
                 ...prev,
                 issuingOrganisation: e.target.value,
               }))
@@ -56,9 +56,9 @@ const Certificates = ({
             <span className="text-sm uppercase">Issue Date</span>
             <div className="flex w-full gap-4">
               <Dropdown
-                value={certificate.startMonth}
+                value={certificates.startMonth}
                 onChange={(e) =>
-                  setCertificate((prev) => ({
+                  setCertificates((prev) => ({
                     ...prev,
                     startMonth: e.target.value,
                   }))
@@ -67,9 +67,9 @@ const Certificates = ({
                 placeholder="Month"
               />
               <Dropdown
-                value={certificate.startYear}
+                value={certificates.startYear}
                 onChange={(e) =>
-                  setCertificate((prev) => ({
+                  setCertificates((prev) => ({
                     ...prev,
                     startYear: e.target.value,
                   }))
@@ -83,9 +83,9 @@ const Certificates = ({
             <span className="text-sm uppercase">Expiration Date</span>
             <div className="flex w-full gap-4">
               <Dropdown
-                value={certificate.endMonth}
+                value={certificates.endMonth}
                 onChange={(e) =>
-                  setCertificate((prev) => ({
+                  setCertificates((prev) => ({
                     ...prev,
                     endMonth: e.target.value,
                   }))
@@ -94,9 +94,9 @@ const Certificates = ({
                 placeholder="Month"
               />
               <Dropdown
-                value={certificate.endYear}
+                value={certificates.endYear}
                 onChange={(e) =>
-                  setCertificate((prev) => ({
+                  setCertificates((prev) => ({
                     ...prev,
                     endYear: e.target.value,
                   }))
@@ -108,12 +108,12 @@ const Certificates = ({
             <div className="flex gap-2 p-1">
               <input
                 onChange={(e) =>
-                  setCertificate((prev) => ({
+                  setCertificates((prev) => ({
                     ...prev,
                     doesNotExpire: e.target.checked,
                   }))
                 }
-                checked={certificate.doesNotExpire}
+                checked={certificates.doesNotExpire}
                 type="checkbox"
               />
               <span className="text-sm">Does not expire</span>
@@ -121,9 +121,9 @@ const Certificates = ({
           </div>
         </div>
         <TextArea
-          value={certificate.description}
+          value={certificates.description}
           onChange={(e) =>
-            setCertificate((prev) => ({
+            setCertificates((prev) => ({
               ...prev,
               description: e.target.value,
             }))

@@ -56,7 +56,7 @@ const useInputs = () => {
     proficiency: "",
   });
 
-  const [certificate, setCertificate] = useState({
+  const [certificates, setCertificates] = useState({
     certificationName: "",
     credentialURL: "",
     issuingOrganization: "",
@@ -79,8 +79,8 @@ const useInputs = () => {
     setSkills,
     languages,
     setLanguages,
-    certificate,
-    setCertificate,
+    certificates,
+    setCertificates,
     hidden,
     setHidden,
   };
