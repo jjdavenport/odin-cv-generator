@@ -189,7 +189,7 @@ const Output = ({
                     <a
                       className="flex gap-1"
                       target="_blank"
-                      href={`https://${certificate.credentialURL}`}
+                      href={`https://${certificates.credentialURL}`}
                     >
                       {certificates.issuingOrganisation}
                       <img className="w-3 object-contain" src={linkIcon} />

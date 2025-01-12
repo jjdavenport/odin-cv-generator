@@ -3,11 +3,16 @@ import Dropdown from "./dropdown";
 import AddButton from "./add-button";
 import Title from "./title";
 
-const Languages = ({ languageProficiency, languages, setLanguages }) => {
+const Languages = ({
+  languageProficiency,
+  languages,
+  setLanguages,
+  onClose,
+}) => {
   return (
     <>
       <form noValidate className="flex flex-col gap-6">
-        <Title text="Languages" />
+        <Title onClick={onClose} type="button" text="Languages" />
         <AddButton type="button" text="Add" />
         <div className="flex gap-4">
           <Input

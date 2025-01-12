@@ -3,11 +3,11 @@ import Dropdown from "./dropdown";
 import AddButton from "./add-button";
 import Title from "./title";
 
-const Skills = ({ skillsProficiency, skills, setSkills }) => {
+const Skills = ({ skillsProficiency, skills, setSkills, onClose }) => {
   return (
     <>
       <form noValidate className="flex flex-col gap-6">
-        <Title text="Skills" />
+        <Title onClick={onClose} type="button" text="Skills" />
         <AddButton type="button" title="Add" />
         <div className="flex gap-4">
           <Input

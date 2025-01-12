@@ -16,7 +16,7 @@ const Personal = ({ onClose, setPersonal, personal }) => {
   return (
     <>
       <form noValidate className="flex flex-col gap-6">
-        <Title onClick={onClose} text="Personal Details" />
+        <Title type="button" onClick={onClose} text="Personal Details" />
         <div className="flex w-full gap-2">
           {personal.avatar === "" ? (
             <EmptyAvatar
