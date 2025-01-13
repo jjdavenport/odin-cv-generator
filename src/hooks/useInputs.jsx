@@ -1,7 +1,31 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import html2canvas from "html2canvas";
+import { jsPDF } from "jspdf";
+
 import avatarIcon from "../assets/avatar-icon.png";
 
 const useInputs = () => {
+  const targetRef = useRef(null);
+
+  const downloadPDF = () => {
+    const input = targetRef.current;
+    if (!input) return;
+
+    html2canvas(input, { scale: 2 }).then((canvas) => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF("p", "mm", "a4");
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const imgWidth = canvas.width;
+      const imgHeight = canvas.height;
+      const ratio = pdfWidth / imgWidth;
+      const imgX = 0;
+      const imgY = 0;
+
+      pdf.addImage(imgData, "PNG", imgX, imgY, pdfWidth, imgHeight * ratio);
+      pdf.save("cv.pdf");
+    });
+  };
+
   const [hidden, setHidden] = useState({
     experience: false,
     education: false,
@@ -83,6 +107,8 @@ const useInputs = () => {
     setCertificates,
     hidden,
     setHidden,
+    downloadPDF,
+    targetRef,
   };
 };
 

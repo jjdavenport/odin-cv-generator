@@ -18,11 +18,14 @@ function App() {
     setCertificates,
     hidden,
     setHidden,
+    downloadPDF,
+    targetRef,
   } = useInputs();
   return (
     <>
       <div className="flex flex-col font-custom md:flex-row">
         <Output
+          targetRef={targetRef}
           hidden={hidden}
           education={education}
           experience={experience}
@@ -32,6 +35,7 @@ function App() {
           certificates={certificates}
         />
         <Inputs
+          download={downloadPDF}
           hidden={hidden}
           setHidden={setHidden}
           languages={languages}

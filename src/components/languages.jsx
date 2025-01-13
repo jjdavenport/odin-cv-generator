@@ -23,7 +23,7 @@ const Languages = ({
               }))
             }
             value={languages.language}
-            label="Skill Name"
+            label="Language"
             type="text"
           />
           <Dropdown

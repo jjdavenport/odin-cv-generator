@@ -30,6 +30,7 @@ const Inputs = ({
   setLanguages,
   hidden,
   setHidden,
+  download,
 }) => {
   const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
@@ -90,7 +91,10 @@ const Inputs = ({
                 />
               ))}
             </ul>
-            <button className="flex items-center justify-center gap-2 rounded-lg bg-blue-600 p-3 text-white transition-colors duration-300 ease-in-out hover:bg-blue-700">
+            <button
+              onClick={download}
+              className="flex items-center justify-center gap-2 rounded-lg bg-blue-600 p-3 text-white transition-colors duration-300 ease-in-out hover:bg-blue-700"
+            >
               <img className="w-4 pb-1" src={downloadIcon} />
               Download
             </button>

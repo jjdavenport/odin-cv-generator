@@ -11,6 +11,7 @@ const Output = ({
   languages,
   certificates,
   hidden,
+  targetRef,
 }) => {
   const monthNumber = (month) => {
     const months = {
@@ -33,7 +34,10 @@ const Output = ({
   return (
     <>
       <section className="flex w-full bg-gray-200 bg-dots bg-cover bg-no-repeat p-4 text-xs md:h-full md:min-h-screen md:w-1/2">
-        <div className="flex w-full flex-1 flex-col gap-4 bg-white p-4 shadow-md">
+        <div
+          ref={targetRef}
+          className="flex w-full flex-1 flex-col gap-4 bg-white p-4 shadow-md"
+        >
           <div className="flex justify-between">
             <div className="flex gap-1">
               {personal.avatar === "" ? null : (
