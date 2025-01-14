@@ -1,6 +1,6 @@
 import { useState, useRef } from "react";
-import html2canvas from "html2canvas";
 import { jsPDF } from "jspdf";
+import { toPng } from "html-to-image";
 
 import avatarIcon from "../assets/avatar-icon.png";
 
@@ -8,22 +8,20 @@ const useInputs = () => {
   const targetRef = useRef(null);
 
   const downloadPDF = () => {
-    const input = targetRef.current;
-    if (!input) return;
-
-    html2canvas(input, { scale: 2 }).then((canvas) => {
-      const imgData = canvas.toDataURL("image/png");
-      const pdf = new jsPDF("p", "mm", "a4");
-      const pdfWidth = pdf.internal.pageSize.getWidth();
-      const imgWidth = canvas.width;
-      const imgHeight = canvas.height;
-      const ratio = pdfWidth / imgWidth;
-      const imgX = 0;
-      const imgY = 0;
-
-      pdf.addImage(imgData, "PNG", imgX, imgY, pdfWidth, imgHeight * ratio);
-      pdf.save("cv.pdf");
-    });
+    if (targetRef.current) {
+      toPng(targetRef.current)
+        .then((dataUrl) => {
+          const pdf = new jsPDF();
+          const imgProps = pdf.getImageProperties(dataUrl);
+          const pdfWidth = pdf.internal.pageSize.getWidth();
+          const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+          pdf.addImage(dataUrl, "PNG", 0, 0, pdfWidth, pdfHeight);
+          pdf.save("cv.pdf");
+        })
+        .catch((error) => {
+          console.error("Error generating PDF:", error);
+        });
+    }
   };
 
   const [hidden, setHidden] = useState({
