@@ -2,6 +2,7 @@ import Input from "./input";
 import Dropdown from "./dropdown";
 import AddButton from "./add-button";
 import Title from "./title";
+import BinButton from "./bin-button";
 
 const Skills = ({
   addSkills,
@@ -32,6 +33,7 @@ const Skills = ({
                 placeholder="Proficiency"
                 type={skillsProficiency}
               />
+              <BinButton type="button" />
             </div>
           </>
         ))}

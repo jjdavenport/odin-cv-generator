@@ -1,6 +1,6 @@
 const Title = ({ text, type, onClick }) => {
   return (
-    <div className="flex items-center gap-4 text-xl font-bold">
+    <div className="flex w-full items-center gap-4 text-xl font-bold">
       <button
         onClick={onClick}
         type={type}

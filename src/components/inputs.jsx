@@ -35,6 +35,7 @@ const Inputs = ({
   updateSkills,
   addLanguages,
   updateLanguages,
+  setPersonal,
 }) => {
   const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
@@ -58,9 +59,10 @@ const Inputs = ({
 
   const ActiveComponent = buttons[active]?.component;
   return (
-    <main className="flex w-full flex-col gap-2 p-8 md:h-full md:min-h-screen md:w-1/2">
+    <main className="flex w-full flex-col gap-2 p-8 md:h-full md:min-h-screen md:max-w-screen-sm">
       {ActiveComponent ? (
         <ActiveComponent
+          setPersonal={setPersonal}
           addLanguages={addLanguages}
           updateLanguages={updateLanguages}
           addSkills={addSkills}

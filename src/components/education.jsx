@@ -3,6 +3,7 @@ import AddButton from "./add-button";
 import Title from "./title";
 import Dropdown from "./dropdown";
 import TextArea from "./textarea";
+import DeleteButton from "./delete-button";
 
 const Education = ({
   onClose,
@@ -19,7 +20,8 @@ const Education = ({
         <AddButton onClick={addEducation} type="button" text="Add Education" />
         {education.map((i, index) => (
           <>
-            <div key={index} className="flex flex-col gap-4">
+            <div key={index} className="flex flex-col items-end gap-4">
+              <DeleteButton type="button" />
               <Input
                 value={i.school}
                 onChange={(e) =>

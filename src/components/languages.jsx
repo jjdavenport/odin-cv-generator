@@ -2,6 +2,7 @@ import Input from "./input";
 import Dropdown from "./dropdown";
 import AddButton from "./add-button";
 import Title from "./title";
+import BinButton from "./bin-button";
 
 const Languages = ({
   languageProficiency,
@@ -12,12 +13,12 @@ const Languages = ({
 }) => {
   return (
     <>
-      <form noValidate className="flex flex-col gap-6">
+      <form noValidate className="flex flex-col items-end gap-6">
         <Title onClick={onClose} type="button" text="Languages" />
         <AddButton onClick={addLanguages} type="button" text="Add" />
         {languages.map((i, index) => (
           <>
-            <div key={index} className="flex gap-4">
+            <div key={index} className="flex w-full gap-4">
               <Input
                 onChange={(e) =>
                   updateLanguages(index, "language", e.target.value)
@@ -34,6 +35,7 @@ const Languages = ({
                 placeholder="Proficiency"
                 type={languageProficiency}
               />
+              <BinButton type="button" />
             </div>
           </>
         ))}

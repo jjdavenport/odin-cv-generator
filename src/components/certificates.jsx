@@ -3,6 +3,7 @@ import Title from "./title";
 import Input from "./input";
 import Dropdown from "./dropdown";
 import TextArea from "./textarea";
+import DeleteButton from "./delete-button";
 
 const Certificates = ({
   onClose,
@@ -14,12 +15,13 @@ const Certificates = ({
 }) => {
   return (
     <>
-      <form noValidate className="flex flex-col gap-6">
+      <form noValidate className="flex flex-col items-end gap-6">
         <Title onClick={onClose} type="button" text="Certificates" />
         <AddButton onClick={addCertificates} type="button" text="Add" />
         {certificates.map((i, index) => (
           <>
-            <div key={index} className="flex flex-col gap-4">
+            <DeleteButton type="button" />
+            <div key={index} className="flex w-full flex-col gap-4">
               <Input
                 value={i.certificationName}
                 onChange={(e) =>
@@ -94,7 +96,11 @@ const Certificates = ({
                 <div className="flex gap-2 p-1">
                   <input
                     onChange={(e) =>
-                      updateCertificates(index, "doesNotExpire", e.target.value)
+                      updateCertificates(
+                        index,
+                        "doesNotExpire",
+                        e.target.checked,
+                      )
                     }
                     checked={i.doesNotExpire}
                     type="checkbox"
