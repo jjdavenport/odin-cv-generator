@@ -6,38 +6,37 @@ import Title from "./title";
 const Languages = ({
   languageProficiency,
   languages,
-  setLanguages,
+  addLanguages,
+  updateLanguages,
   onClose,
 }) => {
   return (
     <>
       <form noValidate className="flex flex-col gap-6">
         <Title onClick={onClose} type="button" text="Languages" />
-        <AddButton type="button" text="Add" />
-        <div className="flex gap-4">
-          <Input
-            onChange={(e) =>
-              setLanguages((prev) => ({
-                ...prev,
-                language: e.target.value,
-              }))
-            }
-            value={languages.language}
-            label="Language"
-            type="text"
-          />
-          <Dropdown
-            onChange={(e) =>
-              setLanguages((prev) => ({
-                ...prev,
-                proficiency: e.target.value,
-              }))
-            }
-            value={languages.proficiency}
-            placeholder="Proficiency"
-            type={languageProficiency}
-          />
-        </div>
+        <AddButton onClick={addLanguages} type="button" text="Add" />
+        {languages.map((i, index) => (
+          <>
+            <div key={index} className="flex gap-4">
+              <Input
+                onChange={(e) =>
+                  updateLanguages(index, "language", e.target.value)
+                }
+                value={i.language}
+                label="Language"
+                type="text"
+              />
+              <Dropdown
+                onChange={(e) =>
+                  updateLanguages(index, "proficiency", e.target.value)
+                }
+                value={i.proficiency}
+                placeholder="Proficiency"
+                type={languageProficiency}
+              />
+            </div>
+          </>
+        ))}
       </form>
     </>
   );

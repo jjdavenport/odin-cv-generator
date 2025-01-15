@@ -16,21 +16,25 @@ import Skills from "./skills";
 import downloadIcon from "../assets/download-icon.svg";
 
 const Inputs = ({
-  setPersonal,
   personal,
   experience,
-  setExperience,
   education,
-  setEducation,
   certificates,
-  setCertificates,
   skills,
-  setSkills,
   languages,
-  setLanguages,
   hidden,
   setHidden,
   download,
+  addExperience,
+  updateExperience,
+  addCertificates,
+  updateCertificates,
+  addEducation,
+  updateEducation,
+  addSkills,
+  updateSkills,
+  addLanguages,
+  updateLanguages,
 }) => {
   const { months, years, skillsProficiency, languageProficiency } = useData();
   const [active, setActive] = useState(null);
@@ -57,18 +61,22 @@ const Inputs = ({
     <main className="flex w-full flex-col gap-2 p-8 md:h-full md:min-h-screen md:w-1/2">
       {ActiveComponent ? (
         <ActiveComponent
+          addLanguages={addLanguages}
+          updateLanguages={updateLanguages}
+          addSkills={addSkills}
+          updateSkills={updateSkills}
+          addEducation={addEducation}
+          updateEducation={updateEducation}
+          addCertificates={addCertificates}
+          updateCertificates={updateCertificates}
+          addExperience={addExperience}
+          updateExperience={updateExperience}
           languages={languages}
-          setLanguages={setLanguages}
           skills={skills}
-          setSkills={setSkills}
           certificates={certificates}
-          setCertificates={setCertificates}
           education={education}
-          setEducation={setEducation}
-          setExperience={setExperience}
           experience={experience}
           personal={personal}
-          setPersonal={setPersonal}
           months={months}
           years={years}
           languageProficiency={languageProficiency}

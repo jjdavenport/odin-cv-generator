@@ -2,6 +2,10 @@ import phoneIcon from "../assets/phone-icon.svg";
 import mailIcon from "../assets/mail-icon.svg";
 import locationIcon from "../assets/location-icon.svg";
 import linkIcon from "../assets/link-icon.svg";
+import ExperienceOutput from "./experience-output";
+import EducationOutput from "./education-output";
+import CertificatesOutput from "./certificates-output";
+import { useEffect } from "react";
 
 const Output = ({
   personal,
@@ -30,6 +34,10 @@ const Output = ({
     };
     return months[month];
   };
+
+  useEffect(() => {
+    console.log(certificates);
+  }, [certificates]);
 
   return (
     <>
@@ -73,59 +81,14 @@ const Output = ({
               <span className="border-b border-dashed border-gray-500 py-2 uppercase tracking-widest">
                 Experience
               </span>
-              <div className="flex justify-between">
-                <div className="flex flex-col">
-                  <span className="font-medium">{experience.jobTitle}</span>
-                  {experience.companyWebsite === "" ? (
-                    <span className="text-gray-500">{experience.company}</span>
-                  ) : (
-                    <a
-                      className="flex gap-1 text-gray-500"
-                      target="_blank"
-                      href={`https://${experience.companyWebsite}`}
-                    >
-                      {experience.company}
-                      <img className="w-3 object-contain" src={linkIcon} />
-                    </a>
-                  )}
-                  <span>{experience.jobDescription}</span>
-                  {experience.accomplishments === "" ? null : (
-                    <ul>
-                      <li className="list-inside list-disc">
-                        {experience.accomplishments}
-                      </li>
-                    </ul>
-                  )}
-                </div>
-                <div className="flex gap-1 text-gray-500">
-                  {experience.startMonth === "" &&
-                  experience.startYear === "" ? null : (
-                    <>
-                      <div>
-                        <span>
-                          {monthNumber(experience.startMonth)}/
-                          <span>{experience.startYear}</span>
-                        </span>
-                      </div>
-                      <span>-</span>
-                    </>
-                  )}
-                  {experience.endMonth === "" &&
-                  experience.endYear === "" &&
-                  experience.toPresent === false ? null : (
-                    <div>
-                      {experience.toPresent ? (
-                        <span className="text-gray-500">Present</span>
-                      ) : (
-                        <span>
-                          {monthNumber(experience.endMonth)}/
-                          <span>{experience.endYear}</span>
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
+              {experience.map((i, index) => (
+                <ExperienceOutput
+                  key={index}
+                  experience={i}
+                  linkIcon={linkIcon}
+                  monthNumber={monthNumber}
+                />
+              ))}
             </div>
           )}
           {!hidden.education && (
@@ -133,50 +96,13 @@ const Output = ({
               <span className="border-b border-dashed border-gray-500 py-2 uppercase">
                 Education
               </span>
-              <div className="flex justify-between">
-                <div className="flex flex-col">
-                  <div className="flex gap-1 text-gray-500">
-                    <span>{education.school}</span>
-                    <span>-</span>
-                    <span>{education.degree}</span>
-                  </div>
-                  {education.achievements === "" ? null : (
-                    <ul>
-                      <li className="list-inside list-disc">
-                        {education.achievements}
-                      </li>
-                    </ul>
-                  )}
-                </div>
-                <div className="flex gap-1">
-                  {education.startMonth === "" &&
-                  education.startYear === "" ? null : (
-                    <>
-                      <div>
-                        <span>
-                          {monthNumber(education.startMonth)}/
-                          <span>{education.startYear}</span>
-                        </span>
-                      </div>
-                      <span>-</span>
-                    </>
-                  )}
-                  {education.endMonth === "" &&
-                  education.endYear === "" &&
-                  education.toPresent === false ? null : (
-                    <div>
-                      {education.toPresent ? (
-                        <span className="text-gray-500">Present</span>
-                      ) : (
-                        <span>
-                          {monthNumber(education.endMonth)}/
-                          <span>{education.endYear}</span>
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
+              {education.map((i, index) => (
+                <EducationOutput
+                  key={index}
+                  education={i}
+                  monthNumber={monthNumber}
+                />
+              ))}
             </div>
           )}
           {!hidden.certificates && (
@@ -184,58 +110,14 @@ const Output = ({
               <span className="border-b border-dashed border-gray-500 py-2 uppercase">
                 Certificates
               </span>
-              <div className="flex justify-between">
-                <div className="flex flex-col">
-                  <span>{certificates.certificationName}</span>
-                  {certificates.credentialURL === "" ? (
-                    <span>{certificates.issuingOrganisation}</span>
-                  ) : (
-                    <a
-                      className="flex gap-1"
-                      target="_blank"
-                      href={`https://${certificates.credentialURL}`}
-                    >
-                      {certificates.issuingOrganisation}
-                      <img className="w-3 object-contain" src={linkIcon} />
-                    </a>
-                  )}
-                  {certificates.description === "" ? null : (
-                    <ul>
-                      <li className="list-inside list-disc">
-                        {certificates.description}
-                      </li>
-                    </ul>
-                  )}
-                </div>
-                <div className="flex gap-1">
-                  {certificates.startMonth === "" &&
-                  certificates.startYear === "" ? null : (
-                    <>
-                      <div>
-                        <span>
-                          {monthNumber(certificates.startMonth)}/
-                          <span>{certificates.startYear}</span>
-                        </span>
-                      </div>
-                      <span>-</span>
-                    </>
-                  )}
-                  {certificates.endMonth === "" &&
-                  certificates.endYear === "" &&
-                  certificates.doesNotExpire === false ? null : (
-                    <div>
-                      {certificates.doesNotExpire ? (
-                        <span>Present</span>
-                      ) : (
-                        <span>
-                          {monthNumber(certificates.endMonth)}/
-                          <span>{certificates.endYear}</span>
-                        </span>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
+              {certificates.map((i, index) => (
+                <CertificatesOutput
+                  key={index}
+                  certificates={i}
+                  linkIcon={linkIcon}
+                  monthNumber={monthNumber}
+                />
+              ))}
             </div>
           )}
           {!hidden.skills && (
@@ -243,10 +125,12 @@ const Output = ({
               <span className="border-b border-dashed border-gray-500 py-2 uppercase">
                 Skills
               </span>
-              <div className="flex justify-between">
-                <span>{skills.skill}</span>
-                <span>{skills.proficiency}</span>
-              </div>
+              {skills.map((i, index) => (
+                <div key={index} className="flex justify-between">
+                  <span>{i.skill}</span>
+                  <span>{i.proficiency}</span>
+                </div>
+              ))}
             </div>
           )}
           {!hidden.languages && (
@@ -254,10 +138,12 @@ const Output = ({
               <span className="border-b border-dashed border-gray-500 py-2 uppercase">
                 Languages
               </span>
-              <div className="flex justify-between">
-                <span>{languages.language}</span>
-                <span>{languages.proficiency}</span>
-              </div>
+              {languages.map((i, index) => (
+                <div key={index} className="flex justify-between">
+                  <span>{i.language}</span>
+                  <span>{i.proficiency}</span>
+                </div>
+              ))}
             </div>
           )}
         </div>

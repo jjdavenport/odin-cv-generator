@@ -41,7 +41,7 @@ const Personal = ({ onClose, setPersonal, personal }) => {
               type="button"
             />
           )}
-          <div className="flex w-1/2 flex-col gap-4">
+          <div className="flex w-1/2 flex-col justify-between gap-4">
             <Input
               value={personal.firstName}
               onChange={(e) =>

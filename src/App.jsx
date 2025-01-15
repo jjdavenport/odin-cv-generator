@@ -5,25 +5,29 @@ import Output from "./components/output";
 function App() {
   const {
     personal,
-    setPersonal,
     experience,
-    setExperience,
     education,
-    setEducation,
     skills,
-    setSkills,
     languages,
-    setLanguages,
     certificates,
-    setCertificates,
     hidden,
     setHidden,
     downloadPDF,
     targetRef,
+    updateExperience,
+    addExperience,
+    addEducation,
+    updateEducation,
+    addCertificates,
+    updateCertificates,
+    addSkills,
+    updateSkills,
+    addLanguages,
+    updateLanguages,
   } = useInputs();
   return (
     <>
-      <div className="flex flex-col font-custom md:flex-row">
+      <div className="flex flex-col justify-center font-custom md:flex-row">
         <Output
           targetRef={targetRef}
           hidden={hidden}
@@ -35,21 +39,25 @@ function App() {
           certificates={certificates}
         />
         <Inputs
+          addLanguages={addLanguages}
+          updateLanguages={updateLanguages}
+          addSkills={addSkills}
+          updateSkills={updateSkills}
+          addEducation={addEducation}
+          updateEducation={updateEducation}
+          addCertificates={addCertificates}
+          updateCertificates={updateCertificates}
+          addExperience={addExperience}
+          updateExperience={updateExperience}
           download={downloadPDF}
           hidden={hidden}
           setHidden={setHidden}
           languages={languages}
-          setLanguages={setLanguages}
           skills={skills}
-          setSkills={setSkills}
           certificates={certificates}
-          setCertificates={setCertificates}
           education={education}
-          setEducation={setEducation}
           experience={experience}
-          setExperience={setExperience}
           personal={personal}
-          setPersonal={setPersonal}
         />
       </div>
     </>
