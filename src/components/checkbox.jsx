@@ -6,9 +6,14 @@ const Checkbox = ({ onChange, checked, type }) => {
       <button
         type={type}
         onClick={onChange}
-        className="h-5 w-5 rounded-md bg-gray-400"
+        className={`${checked ? "bg-blue-600" : "bg-gray-200"} flex h-5 w-5 items-center justify-center rounded-sm outline-none transition-all duration-100 ease-in-out`}
       >
-        {checked && <img className="h-4 w-4" src={checkIcon} />}
+        {checked && (
+          <img
+            className="h-3 w-3 transition-all duration-100 ease-in-out"
+            src={checkIcon}
+          />
+        )}
       </button>
     </>
   );

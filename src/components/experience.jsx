@@ -83,7 +83,7 @@ const Experience = ({
                 <span className="hidden items-center text-gray-400 lg:flex">
                   -
                 </span>
-                <div className="w-full">
+                <div className="flex w-full flex-col gap-1">
                   <span className="text-sm uppercase text-gray-400">
                     End Date
                   </span>
@@ -105,7 +105,7 @@ const Experience = ({
                       placeholder="Year"
                     />
                   </div>
-                  <div className="flex gap-2 p-1">
+                  <div className="flex gap-2 py-1">
                     <Checkbox
                       checked={i.toPresent}
                       type="button"
