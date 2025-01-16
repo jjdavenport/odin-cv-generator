@@ -1,10 +1,4 @@
-import { useEffect } from "react";
-
 const CertificatesOutput = ({ certificates, linkIcon, monthNumber }) => {
-  useEffect(() => {
-    console.log(certificates.startYear);
-  }, [certificates.startYear]);
-
   return (
     <>
       <div className="flex justify-between">

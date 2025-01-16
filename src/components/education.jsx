@@ -4,6 +4,7 @@ import Title from "./title";
 import Dropdown from "./dropdown";
 import TextArea from "./textarea";
 import DeleteButton from "./delete-button";
+import Checkbox from "./checkbox";
 
 const Education = ({
   onClose,
@@ -98,12 +99,12 @@ const Education = ({
                     />
                   </div>
                   <div className="flex gap-2 p-1">
-                    <input
-                      onChange={(e) =>
-                        updateEducation(index, "toPresent", e.target.checked)
-                      }
+                    <Checkbox
                       checked={i.toPresent}
-                      type="checkbox"
+                      type="button"
+                      onChange={() =>
+                        updateEducation(index, "toPresent", !i.toPresent)
+                      }
                     />
                     <span className="text-sm text-gray-400">Present</span>
                   </div>

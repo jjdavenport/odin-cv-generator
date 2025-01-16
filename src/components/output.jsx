@@ -5,7 +5,6 @@ import linkIcon from "../assets/link-icon.svg";
 import ExperienceOutput from "./experience-output";
 import EducationOutput from "./education-output";
 import CertificatesOutput from "./certificates-output";
-import { useEffect } from "react";
 
 const Output = ({
   personal,

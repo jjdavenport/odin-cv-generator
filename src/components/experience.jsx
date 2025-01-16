@@ -4,6 +4,7 @@ import Title from "./title";
 import Dropdown from "./dropdown";
 import TextArea from "./textarea";
 import DeleteButton from "./delete-button";
+import Checkbox from "./checkbox";
 
 const Experience = ({
   onClose,
@@ -24,9 +25,12 @@ const Experience = ({
         />
         {experience.map((i, index) => (
           <>
-            <div className="flex w-full flex-col items-end gap-6 border-b border-gray-300 pb-8">
+            <div
+              key={index}
+              className="flex w-full flex-col items-end gap-6 border-b border-gray-300 pb-8"
+            >
               <DeleteButton type="button" />
-              <div key={index} className="flex w-full flex-col gap-4">
+              <div className="flex w-full flex-col gap-4">
                 <Input
                   value={i.jobTitle}
                   onChange={(e) =>
@@ -102,13 +106,12 @@ const Experience = ({
                     />
                   </div>
                   <div className="flex gap-2 p-1">
-                    <input
-                      className="bg-gray-400"
-                      onChange={(e) =>
-                        updateExperience(index, "toPresent", e.target.checked)
-                      }
+                    <Checkbox
                       checked={i.toPresent}
-                      type="checkbox"
+                      type="button"
+                      onChange={() =>
+                        updateExperience(index, "toPresent", !i.toPresent)
+                      }
                     />
                     <span className="text-sm text-gray-400">Present</span>
                   </div>
