@@ -59,7 +59,7 @@ const Inputs = ({
 
   const ActiveComponent = buttons[active]?.component;
   return (
-    <main className="flex w-full flex-col gap-2 p-8 md:h-full md:min-h-screen md:max-w-screen-sm">
+    <main className="~md/lg:~p-6/8 flex w-full flex-col gap-2 md:h-full md:min-h-screen md:max-w-screen-sm">
       {ActiveComponent ? (
         <ActiveComponent
           setPersonal={setPersonal}

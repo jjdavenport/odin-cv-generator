@@ -2,7 +2,7 @@ const BinButton = ({ onClick, type }) => {
   return (
     <button type={type} className="group w-10" onClick={onClick}>
       <svg
-        className="fill-transparent transition-all duration-300 ease-in-out group-hover:fill-red-500"
+        className="fill-gray-300 transition-all duration-300 ease-in-out group-hover:fill-red-500"
         version="1.1"
         id="Capa_1"
         xmlns="http://www.w3.org/2000/svg"
