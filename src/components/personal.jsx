@@ -12,6 +12,7 @@ const Personal = ({ onClose, setPersonal, personal }) => {
     handleDragEnter,
     handleDragLeave,
     handleDragOver,
+    dragging,
   } = useDrop({ setPersonal });
   return (
     <>
@@ -20,6 +21,7 @@ const Personal = ({ onClose, setPersonal, personal }) => {
         <div className="flex w-full gap-2">
           {personal.avatar === "" ? (
             <EmptyAvatar
+              dragging={dragging}
               fileInputRef={fileInputRef}
               handleDragEnter={handleDragEnter}
               handleDragLeave={handleDragLeave}
@@ -30,13 +32,13 @@ const Personal = ({ onClose, setPersonal, personal }) => {
             />
           ) : (
             <Avatar
+              dragging={dragging}
               fileInputRef={fileInputRef}
               handleDragEnter={handleDragEnter}
               handleDragLeave={handleDragLeave}
               handleUpload={handleUpload}
               handleDragOver={handleDragOver}
               onClose={() => setPersonal((prev) => ({ ...prev, avatar: "" }))}
-              cameraIcon={cameraIcon}
               img={personal.avatar}
               type="button"
             />

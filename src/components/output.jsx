@@ -44,10 +44,7 @@ const Output = ({
           <div className="flex justify-between">
             <div className="flex gap-1">
               {personal.avatar === "" ? null : (
-                <img
-                  className="h-10 w-10 rounded-full object-contain"
-                  src={personal.avatar}
-                />
+                <img className="h-12 w-12 rounded-full" src={personal.avatar} />
               )}
               <div className="flex flex-col">
                 <span className="text-lg font-bold">
