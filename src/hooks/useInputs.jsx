@@ -81,6 +81,15 @@ const useInputs = () => {
     setExperience(newExperience);
   };
 
+  const deleteExperience = (deleteIndex) => {
+    if (experience.length > 1) {
+      const newExperience = experience.filter(
+        (_, index) => index !== deleteIndex,
+      );
+      setExperience(newExperience);
+    }
+  };
+
   const [education, setEducation] = useState([
     {
       school: "Havard",
@@ -118,6 +127,15 @@ const useInputs = () => {
     setEducation(newEducation);
   };
 
+  const deleteEducation = (deleteIndex) => {
+    if (education.length > 1) {
+      const newEducation = education.filter(
+        (_, index) => index !== deleteIndex,
+      );
+      setEducation(newEducation);
+    }
+  };
+
   const [skills, setSkills] = useState([
     {
       skill: "",
@@ -141,6 +159,13 @@ const useInputs = () => {
     setSkills(newSkill);
   };
 
+  const deleteSkill = (deleteIndex) => {
+    if (skills.length > 1) {
+      const newSkills = skills.filter((_, index) => index !== deleteIndex);
+      setSkills(newSkills);
+    }
+  };
+
   const [languages, setLanguages] = useState([
     {
       language: "",
@@ -162,6 +187,15 @@ const useInputs = () => {
     const newLanguage = [...languages];
     newLanguage[index] = { ...languages[index], [input]: value };
     setLanguages(newLanguage);
+  };
+
+  const deleteLanguage = (deleteIndex) => {
+    if (languages.length > 1) {
+      const newLanguages = languages.filter(
+        (_, index) => index !== deleteIndex,
+      );
+      setLanguages(newLanguages);
+    }
   };
 
   const [certificates, setCertificates] = useState([
@@ -201,6 +235,15 @@ const useInputs = () => {
     setCertificates(newCertificate);
   };
 
+  const deleteCertificate = (deleteIndex) => {
+    if (certificates.length > 1) {
+      const newCertificates = certificates.filter(
+        (_, index) => index !== deleteIndex,
+      );
+      setCertificates(newCertificates);
+    }
+  };
+
   return {
     personal,
     setPersonal,
@@ -228,6 +271,11 @@ const useInputs = () => {
     updateSkills,
     updateLanguages,
     updateCertificates,
+    deleteExperience,
+    deleteEducation,
+    deleteCertificate,
+    deleteSkill,
+    deleteLanguage,
   };
 };
 

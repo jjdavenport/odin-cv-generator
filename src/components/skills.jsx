@@ -10,6 +10,7 @@ const Skills = ({
   skills,
   onClose,
   skillsProficiency,
+  deleteSkill,
 }) => {
   return (
     <>
@@ -33,7 +34,7 @@ const Skills = ({
                 placeholder="Proficiency"
                 type={skillsProficiency}
               />
-              <BinButton type="button" />
+              <BinButton onClick={() => deleteSkill(index)} type="button" />
             </div>
           </>
         ))}

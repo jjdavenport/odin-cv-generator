@@ -13,6 +13,7 @@ const Education = ({
   education,
   updateEducation,
   addEducation,
+  deleteEducation,
 }) => {
   return (
     <>
@@ -23,7 +24,10 @@ const Education = ({
           <>
             <div className="flex w-full flex-col items-end gap-6 border-b border-gray-300 pb-8">
               <div key={index} className="flex w-full flex-col items-end gap-4">
-                <DeleteButton type="button" />
+                <DeleteButton
+                  onClick={() => deleteEducation(index)}
+                  type="button"
+                />
                 <Input
                   value={i.school}
                   onChange={(e) =>

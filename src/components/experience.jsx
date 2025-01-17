@@ -13,6 +13,7 @@ const Experience = ({
   addExperience,
   updateExperience,
   experience,
+  deleteExperience,
 }) => {
   return (
     <>
@@ -29,7 +30,10 @@ const Experience = ({
               key={index}
               className="flex w-full flex-col items-end gap-6 border-b border-gray-300 pb-8"
             >
-              <DeleteButton type="button" />
+              <DeleteButton
+                onClick={() => deleteExperience(index)}
+                type="button"
+              />
               <div className="flex w-full flex-col gap-4">
                 <Input
                   value={i.jobTitle}

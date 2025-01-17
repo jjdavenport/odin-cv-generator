@@ -10,6 +10,7 @@ const Languages = ({
   addLanguages,
   updateLanguages,
   onClose,
+  deleteLanguage,
 }) => {
   return (
     <>
@@ -35,7 +36,7 @@ const Languages = ({
                 placeholder="Proficiency"
                 type={languageProficiency}
               />
-              <BinButton type="button" />
+              <BinButton onClick={() => deleteLanguage(index)} type="button" />
             </div>
           </>
         ))}

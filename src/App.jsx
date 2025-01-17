@@ -25,6 +25,11 @@ function App() {
     addLanguages,
     updateLanguages,
     setPersonal,
+    deleteLanguage,
+    deleteCertificate,
+    deleteEducation,
+    deleteExperience,
+    deleteSkill,
   } = useInputs();
   return (
     <>
@@ -43,6 +48,11 @@ function App() {
         </div>
         <div className="w-full md:w-1/2">
           <Inputs
+            deleteExperience={deleteExperience}
+            deleteSkill={deleteSkill}
+            deleteEducation={deleteEducation}
+            deleteCertificate={deleteCertificate}
+            deleteLanguage={deleteLanguage}
             addLanguages={addLanguages}
             updateLanguages={updateLanguages}
             addSkills={addSkills}
