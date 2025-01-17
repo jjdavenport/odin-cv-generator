@@ -33,7 +33,7 @@ function App() {
   } = useInputs();
   return (
     <>
-      <div className="flex flex-col justify-center font-custom md:flex-row">
+      <div className="flex flex-col justify-center overflow-hidden font-custom md:flex-row">
         <div className="flex w-full justify-end bg-gray-200 md:w-1/2">
           <Output
             targetRef={targetRef}
@@ -46,7 +46,7 @@ function App() {
             certificates={certificates}
           />
         </div>
-        <div className="w-full md:w-1/2">
+        <div className="w-full overflow-auto md:w-1/2">
           <Inputs
             deleteExperience={deleteExperience}
             deleteSkill={deleteSkill}
