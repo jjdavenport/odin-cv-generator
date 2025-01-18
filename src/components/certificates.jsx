@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import AddButton from "./add-button";
 import Title from "./title";
 import Input from "./input";
@@ -21,81 +22,85 @@ const Certificates = ({
         <Title onClick={onClose} type="button" text="Certificates" />
         <AddButton onClick={addCertificates} type="button" text="Add" />
         {certificates.map((i, index) => (
-          <>
-            <div
-              key={index}
-              className="flex w-full flex-col items-end gap-6 border-b border-gray-300 pb-8"
-            >
-              <DeleteButton
-                onClick={() => deleteCertificate(index)}
-                type="button"
+          <div
+            key={index}
+            className="flex w-full flex-col items-end gap-6 border-b border-gray-300 pb-8"
+          >
+            <DeleteButton
+              onClick={() => deleteCertificate(index)}
+              type="button"
+            />
+            <div className="flex w-full flex-col gap-4">
+              <Input
+                value={i.certificationName}
+                onChange={(e) =>
+                  updateCertificates(index, "certificationName", e.target.value)
+                }
+                label="Certification Name"
+                type="text"
               />
-              <div className="flex w-full flex-col gap-4">
-                <Input
-                  value={i.certificationName}
-                  onChange={(e) =>
-                    updateCertificates(
-                      index,
-                      "certificationName",
-                      e.target.value,
-                    )
-                  }
-                  label="Certification Name"
-                  type="text"
-                />
-                <Input
-                  value={i.credentialURL}
-                  onChange={(e) =>
-                    updateCertificates(index, "credentialURL", e.target.value)
-                  }
-                  label="Credential URL"
-                  type="text"
-                />
-                <Input
-                  value={i.issuingOrganisation}
-                  onChange={(e) =>
-                    updateCertificates(
-                      index,
-                      "issuingOrganisation",
-                      e.target.value,
-                    )
-                  }
-                  label="Issuing Organisation"
-                  type="text"
-                />
-              </div>
-              <div className="flex w-full flex-col gap-4 lg:flex-row">
-                <div className="w-full">
-                  <span className="text-sm uppercase text-gray-400">
-                    Start Date
-                  </span>
-                  <div className="flex w-full gap-4">
-                    <Dropdown
-                      value={i.startMonth}
-                      onChange={(e) =>
-                        updateCertificates(index, "startMonth", e.target.value)
-                      }
-                      type={months}
-                      placeholder="Month"
-                    />
-                    <Dropdown
-                      value={i.startYear}
-                      onChange={(e) =>
-                        updateCertificates(index, "startYear", e.target.value)
-                      }
-                      type={years}
-                      placeholder="Year"
-                    />
-                  </div>
-                </div>
-                <span className="hidden items-center text-gray-400 lg:flex">
-                  -
+              <Input
+                value={i.credentialURL}
+                onChange={(e) =>
+                  updateCertificates(index, "credentialURL", e.target.value)
+                }
+                label="Credential URL"
+                type="text"
+              />
+              <Input
+                value={i.issuingOrganisation}
+                onChange={(e) =>
+                  updateCertificates(
+                    index,
+                    "issuingOrganisation",
+                    e.target.value,
+                  )
+                }
+                label="Issuing Organisation"
+                type="text"
+              />
+            </div>
+            <div className="flex w-full flex-col gap-4 lg:flex-row">
+              <div className="w-full">
+                <span className="text-sm uppercase text-gray-400">
+                  Start Date
                 </span>
-                <div className="flex w-full flex-col gap-1">
-                  <span className="text-sm uppercase text-gray-400">
-                    End Date
-                  </span>
-                  <div className="flex w-full gap-4">
+                <div className="flex w-full gap-4">
+                  <Dropdown
+                    value={i.startMonth}
+                    onChange={(e) =>
+                      updateCertificates(index, "startMonth", e.target.value)
+                    }
+                    type={months}
+                    placeholder="Month"
+                  />
+                  <Dropdown
+                    value={i.startYear}
+                    onChange={(e) =>
+                      updateCertificates(index, "startYear", e.target.value)
+                    }
+                    type={years}
+                    placeholder="Year"
+                  />
+                </div>
+              </div>
+              <span className="hidden items-center text-gray-400 lg:flex">
+                -
+              </span>
+              <div className="flex w-full flex-col gap-1">
+                <span className="text-sm uppercase text-gray-400">
+                  End Date
+                </span>
+                <div className="relative h-[60px]">
+                  <motion.div
+                    initial={{ opacity: 1, height: "auto" }}
+                    animate={{
+                      opacity: i.doesNotExpire ? 0 : 1,
+                      height: i.doesNotExpire ? 0 : "auto",
+                    }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute left-0 top-0 flex w-full gap-4"
+                  >
                     <Dropdown
                       value={i.endMonth}
                       onChange={(e) =>
@@ -112,8 +117,13 @@ const Certificates = ({
                       type={years}
                       placeholder="Year"
                     />
-                  </div>
-                  <div className="flex gap-2 py-1">
+                  </motion.div>
+                  <motion.div
+                    initial={{ y: 40 }}
+                    animate={{ y: i.doesNotExpire ? 3 : 40 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute left-0 top-0 flex gap-2 py-1"
+                  >
                     <Checkbox
                       checked={i.doesNotExpire}
                       type="button"
@@ -128,18 +138,18 @@ const Certificates = ({
                     <span className="text-sm text-gray-400">
                       Does not expire
                     </span>
-                  </div>
+                  </motion.div>
                 </div>
               </div>
-              <TextArea
-                value={i.description}
-                onChange={(e) =>
-                  updateCertificates(index, "description", e.target.value)
-                }
-                label="Description"
-              />
             </div>
-          </>
+            <TextArea
+              value={i.description}
+              onChange={(e) =>
+                updateCertificates(index, "description", e.target.value)
+              }
+              label="Description"
+            />
+          </div>
         ))}
       </form>
     </>
