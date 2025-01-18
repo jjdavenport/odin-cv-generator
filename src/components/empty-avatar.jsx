@@ -97,7 +97,7 @@ const EmptyAvatar = ({
       <span
         className={`${dragging ? "text-gray-900" : "text-gray-400"} text-xs font-medium transition-all duration-300 ease-in-out`}
       >
-        Upload your profile picture <br /> (JPG or PNG, max size: 500MB)
+        Upload your profile picture <br /> (JPG or PNG, max size: 5MB)
       </span>
     </button>
   );

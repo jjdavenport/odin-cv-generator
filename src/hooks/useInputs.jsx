@@ -59,20 +59,18 @@ const useInputs = () => {
   ]);
 
   const addExperience = () => {
-    setExperience([
-      ...experience,
-      {
-        jobTitle: "",
-        company: "",
-        companyWebsite: "",
-        startMonth: "",
-        startYear: "",
-        endMonth: "",
-        endYear: "",
-        toPresent: false,
-        accomplishments: "",
-      },
-    ]);
+    const newExperience = {
+      jobTitle: "",
+      company: "",
+      companyWebsite: "",
+      startMonth: "",
+      startYear: "",
+      endMonth: "",
+      endYear: "",
+      toPresent: false,
+      accomplishments: "",
+    };
+    setExperience((prev) => [newExperience, ...prev]);
   };
 
   const updateExperience = (index, input, value) => {
@@ -105,20 +103,18 @@ const useInputs = () => {
   ]);
 
   const addEducation = () => {
-    setEducation([
-      ...education,
-      {
-        school: "",
-        degree: "",
-        fieldOfStudy: "",
-        startMonth: "",
-        startYear: "",
-        endMonth: "",
-        endYear: "",
-        toPresent: false,
-        achievements: "",
-      },
-    ]);
+    const newEducation = {
+      school: "",
+      degree: "",
+      fieldOfStudy: "",
+      startMonth: "",
+      startYear: "",
+      endMonth: "",
+      endYear: "",
+      toPresent: false,
+      achievements: "",
+    };
+    setEducation((prev) => [newEducation, ...prev]);
   };
 
   const updateEducation = (index, input, value) => {
@@ -144,13 +140,11 @@ const useInputs = () => {
   ]);
 
   const addSkills = () => {
-    setSkills([
-      ...skills,
-      {
-        skill: "",
-        proficiency: "",
-      },
-    ]);
+    const newSkill = {
+      skill: "",
+      proficiency: "",
+    };
+    setSkills((prev) => [newSkill, ...prev]);
   };
 
   const updateSkills = (index, input, value) => {
@@ -174,13 +168,11 @@ const useInputs = () => {
   ]);
 
   const addLanguages = () => {
-    setLanguages([
-      ...languages,
-      {
-        language: "",
-        proficiency: "",
-      },
-    ]);
+    const newLanguage = {
+      language: "",
+      proficiency: "",
+    };
+    setLanguages((prev) => [newLanguage, ...prev]);
   };
 
   const updateLanguages = (index, input, value) => {
@@ -213,20 +205,18 @@ const useInputs = () => {
   ]);
 
   const addCertificates = () => {
-    setCertificates([
-      ...certificates,
-      {
-        certificationName: "",
-        credentialURL: "",
-        issuingOrganization: "",
-        startMonth: "",
-        startYear: "",
-        endMonth: "",
-        endYear: "",
-        doesNotExpire: false,
-        description: "",
-      },
-    ]);
+    const newCertificate = {
+      certificationName: "",
+      credentialURL: "",
+      issuingOrganization: "",
+      startMonth: "",
+      startYear: "",
+      endMonth: "",
+      endYear: "",
+      doesNotExpire: false,
+      description: "",
+    };
+    setCertificates((prev) => [newCertificate, ...prev]);
   };
 
   const updateCertificates = (index, input, value) => {
