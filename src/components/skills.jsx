@@ -15,7 +15,10 @@ const Skills = ({
 }) => {
   return (
     <>
-      <form noValidate className="flex flex-col items-end gap-6">
+      <form
+        noValidate
+        className="flex flex-col items-end gap-6 ~sm/md:~pb-96/0"
+      >
         <Title onClick={onClose} type="button" text="Skills" />
         <AddButton onClick={addSkills} type="button" text="Add" />
         <AnimatePresence>

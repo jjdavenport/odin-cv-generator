@@ -16,7 +16,7 @@ const Personal = ({ onClose, setPersonal, personal }) => {
   } = useDrop({ setPersonal });
   return (
     <>
-      <form noValidate className="flex flex-col gap-6">
+      <form noValidate className="flex flex-col gap-6 ~sm/md:~pb-10/0">
         <Title type="button" onClick={onClose} text="Personal Details" />
         <div className="flex w-full gap-2">
           {personal.avatar === "" ? (

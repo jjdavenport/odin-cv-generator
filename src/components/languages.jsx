@@ -15,7 +15,10 @@ const Languages = ({
 }) => {
   return (
     <>
-      <form noValidate className="flex flex-col items-end gap-6">
+      <form
+        noValidate
+        className="flex flex-col items-end gap-6 ~sm/md:~pb-96/0"
+      >
         <Title onClick={onClose} type="button" text="Languages" />
         <AddButton onClick={addLanguages} type="button" text="Add" />
         <AnimatePresence>
