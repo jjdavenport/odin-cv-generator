@@ -2,8 +2,6 @@ import { useState, useRef } from "react";
 import { jsPDF } from "jspdf";
 import { toPng } from "html-to-image";
 
-import avatarIcon from "../assets/avatar-icon.png";
-
 const useInputs = () => {
   const targetRef = useRef(null);
 
@@ -33,11 +31,11 @@ const useInputs = () => {
   });
 
   const [personal, setPersonal] = useState({
-    avatar: avatarIcon,
+    avatar: "",
     firstName: "John",
     lastName: "Smith",
     jobTitle: "Programmer",
-    phoneNumber: "954358968",
+    phoneNumber: "+44 00000 00000",
     emailAddress: "johnsmith@email.com",
     website: "www.johnsmith.com",
     city: "London",
@@ -48,14 +46,14 @@ const useInputs = () => {
     {
       id: Date.now(),
       jobTitle: "Programmer",
-      company: "Mega Corp",
+      company: "",
       companyWebsite: "",
       startMonth: "",
       startYear: "",
       endMonth: "",
       endYear: "",
       toPresent: false,
-      accomplishments: "Front end developer for Mega Corp.",
+      accomplishments: "",
     },
   ]);
 
@@ -90,9 +88,9 @@ const useInputs = () => {
   const [education, setEducation] = useState([
     {
       id: Date.now(),
-      school: "Havard",
-      degree: "Computer Science",
-      fieldOfStudy: "transistors",
+      school: "",
+      degree: "",
+      fieldOfStudy: "",
       startMonth: "",
       startYear: "",
       endMonth: "",

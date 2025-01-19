@@ -20,7 +20,7 @@ const EducationOutput = ({ education, monthNumber }) => {
           {education.startMonth === "" && education.startYear === "" ? null : (
             <>
               <div>
-                <span>
+                <span className="text-gray-500">
                   {monthNumber(education.startMonth)}/
                   <span>{education.startYear}</span>
                 </span>
@@ -35,7 +35,7 @@ const EducationOutput = ({ education, monthNumber }) => {
               {education.toPresent ? (
                 <span className="text-gray-500">Present</span>
               ) : (
-                <span>
+                <span className="text-gray-500">
                   {monthNumber(education.endMonth)}/
                   <span>{education.endYear}</span>
                 </span>

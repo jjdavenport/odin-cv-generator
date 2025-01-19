@@ -8,7 +8,7 @@ const CertificatesOutput = ({ certificates, linkIcon, monthNumber }) => {
             <span>{certificates.issuingOrganisation}</span>
           ) : (
             <a
-              className="flex gap-1"
+              className="flex gap-1 text-gray-500"
               target="_blank"
               href={`https://${certificates.credentialURL}`}
             >
@@ -29,7 +29,7 @@ const CertificatesOutput = ({ certificates, linkIcon, monthNumber }) => {
           certificates.startYear === "" ? null : (
             <>
               <div>
-                <span>
+                <span className="text-gray-500">
                   {monthNumber(certificates.startMonth)}/
                   <span>{certificates.startYear}</span>
                 </span>
@@ -42,9 +42,9 @@ const CertificatesOutput = ({ certificates, linkIcon, monthNumber }) => {
           certificates.doesNotExpire === false ? null : (
             <div>
               {certificates.doesNotExpire ? (
-                <span>Present</span>
+                <span className="text-gray-500">Present</span>
               ) : (
-                <span>
+                <span className="text-gray-500">
                   {monthNumber(certificates.endMonth)}/
                   <span>{certificates.endYear}</span>
                 </span>

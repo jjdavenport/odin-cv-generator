@@ -12,9 +12,6 @@ export default {
       fontFamily: {
         custom: ["Basier Circle", "sans-serif"],
       },
-      backgroundImage: {
-        dots: "url('/src/assets/dot-background.png')",
-      },
     },
   },
   plugins: [fluid],

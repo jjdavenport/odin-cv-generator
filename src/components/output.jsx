@@ -120,7 +120,7 @@ const Output = ({
               {skills.map((i, index) => (
                 <div key={index} className="flex justify-between">
                   <span>{i.skill}</span>
-                  <span>{i.proficiency}</span>
+                  <span className="text-gray-500">{i.proficiency}</span>
                 </div>
               ))}
             </div>
@@ -133,7 +133,7 @@ const Output = ({
               {languages.map((i, index) => (
                 <div key={index} className="flex justify-between">
                   <span>{i.language}</span>
-                  <span>{i.proficiency}</span>
+                  <span className="text-gray-500">{i.proficiency}</span>
                 </div>
               ))}
             </div>
