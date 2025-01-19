@@ -46,6 +46,7 @@ const useInputs = () => {
 
   const [experience, setExperience] = useState([
     {
+      id: Date.now(),
       jobTitle: "Programmer",
       company: "Mega Corp",
       companyWebsite: "",
@@ -60,6 +61,7 @@ const useInputs = () => {
 
   const addExperience = () => {
     const newExperience = {
+      id: Date.now(),
       jobTitle: "",
       company: "",
       companyWebsite: "",
@@ -73,23 +75,21 @@ const useInputs = () => {
     setExperience((prev) => [newExperience, ...prev]);
   };
 
-  const updateExperience = (index, input, value) => {
-    const newExperience = [...experience];
-    newExperience[index] = { ...experience[index], [input]: value };
-    setExperience(newExperience);
+  const updateExperience = (id, input, value) => {
+    setExperience((prev) =>
+      prev.map((experience) =>
+        experience.id === id ? { ...experience, [input]: value } : id,
+      ),
+    );
   };
 
-  const deleteExperience = (deleteIndex) => {
-    if (experience.length > 1) {
-      const newExperience = experience.filter(
-        (_, index) => index !== deleteIndex,
-      );
-      setExperience(newExperience);
-    }
+  const deleteExperience = (id) => {
+    setExperience((prev) => prev.filter((experience) => experience.id !== id));
   };
 
   const [education, setEducation] = useState([
     {
+      id: Date.now(),
       school: "Havard",
       degree: "Computer Science",
       fieldOfStudy: "transistors",
@@ -104,6 +104,7 @@ const useInputs = () => {
 
   const addEducation = () => {
     const newEducation = {
+      id: Date.now(),
       school: "",
       degree: "",
       fieldOfStudy: "",
@@ -117,23 +118,21 @@ const useInputs = () => {
     setEducation((prev) => [newEducation, ...prev]);
   };
 
-  const updateEducation = (index, input, value) => {
-    const newEducation = [...education];
-    newEducation[index] = { ...education[index], [input]: value };
-    setEducation(newEducation);
+  const updateEducation = (id, input, value) => {
+    setEducation((prev) =>
+      prev.map((education) =>
+        education.id === id ? { ...education, [input]: value } : education,
+      ),
+    );
   };
 
-  const deleteEducation = (deleteIndex) => {
-    if (education.length > 1) {
-      const newEducation = education.filter(
-        (_, index) => index !== deleteIndex,
-      );
-      setEducation(newEducation);
-    }
+  const deleteEducation = (id) => {
+    setEducation((prev) => prev.filter((education) => education.id !== id));
   };
 
   const [skills, setSkills] = useState([
     {
+      id: Date.now(),
       skill: "",
       proficiency: "",
     },
@@ -141,27 +140,28 @@ const useInputs = () => {
 
   const addSkills = () => {
     const newSkill = {
+      id: Date.now(),
       skill: "",
       proficiency: "",
     };
     setSkills((prev) => [newSkill, ...prev]);
   };
 
-  const updateSkills = (index, input, value) => {
-    const newSkill = [...skills];
-    newSkill[index] = { ...skills[index], [input]: value };
-    setSkills(newSkill);
+  const updateSkills = (id, input, value) => {
+    setSkills((prev) =>
+      prev.map((skill) =>
+        skill.id === id ? { ...skill, [input]: value } : skill,
+      ),
+    );
   };
 
-  const deleteSkill = (deleteIndex) => {
-    if (skills.length > 1) {
-      const newSkills = skills.filter((_, index) => index !== deleteIndex);
-      setSkills(newSkills);
-    }
+  const deleteSkill = (id) => {
+    setSkills((prev) => prev.filter((skill) => skill.id !== id));
   };
 
   const [languages, setLanguages] = useState([
     {
+      id: Date.now(),
       language: "",
       proficiency: "",
     },
@@ -169,29 +169,28 @@ const useInputs = () => {
 
   const addLanguages = () => {
     const newLanguage = {
+      id: Date.now(),
       language: "",
       proficiency: "",
     };
     setLanguages((prev) => [newLanguage, ...prev]);
   };
 
-  const updateLanguages = (index, input, value) => {
-    const newLanguage = [...languages];
-    newLanguage[index] = { ...languages[index], [input]: value };
-    setLanguages(newLanguage);
+  const updateLanguages = (id, input, value) => {
+    setLanguages((prev) =>
+      prev.map((language) =>
+        language.id === id ? { ...language, [input]: value } : language,
+      ),
+    );
   };
 
-  const deleteLanguage = (deleteIndex) => {
-    if (languages.length > 1) {
-      const newLanguages = languages.filter(
-        (_, index) => index !== deleteIndex,
-      );
-      setLanguages(newLanguages);
-    }
+  const deleteLanguage = (id) => {
+    setLanguages((prev) => prev.filter((language) => language.id !== id));
   };
 
   const [certificates, setCertificates] = useState([
     {
+      id: Date.now(),
       certificationName: "",
       credentialURL: "",
       issuingOrganization: "",
@@ -206,6 +205,7 @@ const useInputs = () => {
 
   const addCertificates = () => {
     const newCertificate = {
+      id: Date.now(),
       certificationName: "",
       credentialURL: "",
       issuingOrganization: "",
@@ -219,20 +219,21 @@ const useInputs = () => {
     setCertificates((prev) => [newCertificate, ...prev]);
   };
 
-  const updateCertificates = (index, input, value) => {
-    const newCertificate = [...certificates];
-    newCertificate[index] = { ...certificates[index], [input]: value };
-    setCertificates(newCertificate);
-  };
+  function updateCertificates(id, input, value) {
+    setCertificates((prev) =>
+      prev.map((certificate) =>
+        certificate.id === id
+          ? { ...certificate, [input]: value }
+          : certificate,
+      ),
+    );
+  }
 
-  const deleteCertificate = (deleteIndex) => {
-    if (certificates.length > 1) {
-      const newCertificates = certificates.filter(
-        (_, index) => index !== deleteIndex,
-      );
-      setCertificates(newCertificates);
-    }
-  };
+  function deleteCertificate(id) {
+    setCertificates((prev) =>
+      prev.filter((certificate) => certificate.id !== id),
+    );
+  }
 
   return {
     personal,

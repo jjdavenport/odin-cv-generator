@@ -1,3 +1,4 @@
+import { motion, AnimatePresence } from "framer-motion";
 import Input from "./input";
 import Dropdown from "./dropdown";
 import AddButton from "./add-button";
@@ -14,30 +15,38 @@ const Skills = ({
 }) => {
   return (
     <>
-      <form noValidate className="flex flex-col gap-6">
+      <form noValidate className="flex flex-col items-end gap-6">
         <Title onClick={onClose} type="button" text="Skills" />
-        <AddButton onClick={addSkills} type="button" title="Add" />
-        {skills.map((i, index) => (
-          <>
-            <div key={index} className="flex gap-4">
+        <AddButton onClick={addSkills} type="button" text="Add" />
+        <AnimatePresence>
+          {skills.map((i) => (
+            <motion.div
+              key={i.id}
+              layout
+              initial={{ opacity: 0, y: -50 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+              transition={{ duration: 0.3, ease: "easeInOut" }}
+              className="flex w-full gap-4"
+            >
               <Input
-                onChange={(e) => updateSkills(index, "skill", e.target.value)}
+                onChange={(e) => updateSkills(i.id, "skill", e.target.value)}
                 value={i.skill}
                 label="Skill Name"
                 type="text"
               />
               <Dropdown
                 onChange={(e) =>
-                  updateSkills(index, "proficiency", e.target.value)
+                  updateSkills(i.id, "proficiency", e.target.value)
                 }
                 value={i.proficiency}
                 placeholder="Proficiency"
                 type={skillsProficiency}
               />
-              <BinButton onClick={() => deleteSkill(index)} type="button" />
-            </div>
-          </>
-        ))}
+              <BinButton onClick={() => deleteSkill(i.id)} type="button" />
+            </motion.div>
+          ))}
+        </AnimatePresence>
       </form>
     </>
   );
