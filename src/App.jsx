@@ -46,7 +46,7 @@ function App() {
             certificates={certificates}
           />
         </div>
-        <div className="w-full overflow-hidden overflow-x-hidden md:w-1/2 md:overflow-y-auto">
+        <div className="w-full overflow-x-hidden md:w-1/2 md:overflow-y-auto">
           <Inputs
             deleteExperience={deleteExperience}
             deleteSkill={deleteSkill}
