@@ -133,7 +133,7 @@ const Inputs = ({
   };
 
   return (
-    <main className="relative flex max-h-screen w-full flex-col gap-2 ~md/lg:~p-6/8 md:h-full md:min-h-screen md:max-w-screen-sm">
+    <main className="relative flex max-h-screen w-full flex-col gap-2 ~md/lg:~p-6/8 md:h-full md:max-w-screen-sm">
       <AnimatePresence initial={false} mode="wait">
         {active === null ? (
           <MainMenu
